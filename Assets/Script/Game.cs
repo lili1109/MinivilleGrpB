@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    public List<Pile> piles = new List<Pile>();
     public Game()
     {
-        Pile pile = new Pile(new Cards(1, "B", "Immeuble 83", 1, 1));
+        piles.Add(new Pile(new Cards(1, "B", "Immeuble 83", 1, 1)));
     }
 }
