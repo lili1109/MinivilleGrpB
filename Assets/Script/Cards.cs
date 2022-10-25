@@ -14,22 +14,22 @@ public class Cards : MonoBehaviour
 
     public Cards(int De,string Color,string Nom, int Gain, int Prix)
     {
-        de = De;
-        color = Color;
-        nom = Nom;
-        prix = Prix;
-        gain = Gain;
+        this.de = De;
+        this.color = Color;
+        this.nom = Nom;
+        this.prix = Prix;
+        this.gain = Gain;
     }
 
     public override string ToString()
     {
-        string toString = string.Format("["+de+"] "+color+" "+nom + ", prix : " + prix + ", gain : " + gain + "\n");
+        string toString = string.Format("["+this.de+"] "+this.color+" "+this.nom + ", prix : " + this.prix + ", gain : " + this.gain + "\n");
         return toString;
     }
 
     public int effet()
     {
-        return gain;
+        return this.gain;
     }
 }
 
