@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dice : MonoBehaviour
+public class Dice
 {
 	private int nbFaces;
 	private int face = 1;
@@ -26,7 +26,8 @@ public class Dice : MonoBehaviour
 	}
 	public override string ToString()
 	{
-		string toString = this.face. + "";
+
+		string toString = this.face + "";
 		return toString;
 	}
 }

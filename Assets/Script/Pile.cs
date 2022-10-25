@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pile : MonoBehaviour
+public class Pile 
 {
     public List<Cards> cartes = new List<Cards>();
     
