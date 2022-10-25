@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class Dice : MonoBehaviour
 {
-    		private int nbFaces;
+    	private int nbFaces;
 		private int face = 1;
 		System.Random random = new System.Random();
 
