@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class Cards : MonoBehaviour
 {
+    public int de;
     public string nom;
-    public int prix;
+    public string color;
     public int gain;
+    public int prix;
 
-    public Cards(string Nom, int Prix, int Effet)
+
+
+    public Cards(int De,string Color,string Nom, int Gain, int Prix)
     {
+        de = De;
+        color = Color;
         nom = Nom;
         prix = Prix;
-        gain = Effet;
+        gain = Gain;
     }
 
     public override string ToString()
     {
-        string toString = string.Format("");
+        string toString = string.Format("["+de+"] "+color+" "+nom + ", prix : " + prix + ", gain : " + gain + "\n");
         return toString;
     }
 
@@ -26,3 +32,4 @@ public class Cards : MonoBehaviour
         return gain;
     }
 }
+

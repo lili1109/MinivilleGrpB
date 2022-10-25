@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Game()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Pile pile = new Pile(new Cards(1, "B", "Immeuble 83", 1, 1));
     }
 }
