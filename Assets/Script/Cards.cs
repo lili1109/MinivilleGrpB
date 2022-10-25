@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Cards : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public string nom;
+    public int prix;
+    public int effet;
+
+    public Cards(string Nom, int Prix, int Effet)
     {
-        
+        nom = Nom;
+        prix = Prix;
+        effet = Effet;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override string ToString()
     {
-        
+        string toString = string.Format("");
+        return toString;
     }
 }
