@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dice
+public class Dice : MonoBehaviour
 {
 	private int nbFaces;
 	private int face = 1;
