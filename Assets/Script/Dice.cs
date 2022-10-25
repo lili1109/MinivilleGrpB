@@ -1,33 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dice : MonoBehaviour
 {
-	private int nbFaces;
+	public Sprite Face1;
+	public Sprite Face2;
+	public Sprite Face3;
+	public Sprite Face4;
+	public Sprite Face5;
+	public Sprite Face6;
+	private int nbFaces = 6;
 	private int face = 1;
 	System.Random random = new System.Random();
 
-	public Dice(int anbFaces)
-	{
-		this.nbFaces = anbFaces;
-	}
+    public void Start()
+    {
+		Lancer();
+    }
 
-	public int NbFaces
+    public void Lancer()
 	{
-		get { return nbFaces; }
-		set { nbFaces = value; }
-	}
-
-	public int Lancer()
-	{
-		this.face = random.Next(1, this.nbFaces + 1);
-		return this.face;
+		face = Random.Range(1, 6);	
+        if (face == 1)
+        {
+			this.GetComponent<Image>().sprite = Face1;
+        } 
+		if (face == 2)
+        {
+			this.GetComponent<Image>().sprite = Face2;
+		}
+		if (face == 3)
+        {
+			this.GetComponent<Image>().sprite = Face3;
+		}
+		if (face == 4)
+        {
+			this.GetComponent<Image>().sprite = Face4;
+		}
+		if (face == 5)
+        {
+			this.GetComponent<Image>().sprite = Face5;
+		}
+		if (face == 6)
+		{
+			this.GetComponent<Image>().sprite = Face6;
+		}
+		Debug.Log(face);
 	}
 	public override string ToString()
 	{
 
-		string toString = this.face + "";
+		string toString = face + "";
 		return toString;
 	}
 }
