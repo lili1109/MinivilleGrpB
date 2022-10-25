@@ -26,7 +26,7 @@ public class Dice : MonoBehaviour
 	}
 	public override string ToString()
 	{
-		string toString = this.face. + "";
+		string toString = this.face + "";
 		return toString;
 	}
 }
