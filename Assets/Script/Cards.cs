@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cards 
+public class Cards : MonoBehaviour
 {
     public int de;
     public string nom;
