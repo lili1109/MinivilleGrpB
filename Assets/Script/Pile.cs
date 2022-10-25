@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Pile 
+public class Pile : MonoBehaviour
 {
-    public List<Cards> cartes = new List<Cards>();
+    //public List<Cards> cartes = new List<Cards>();
     
     public int nbCartes;
 
@@ -12,10 +13,10 @@ public class Pile
     {
         nbCartes = 6;
         
-        for(int i = 0 ; i < nbCartes; i++)
+        /*for(int i = 0 ; i < nbCartes; i++)
         {
             cartes.Add(carte);
-        }
+        }*/
         /*for (int i = 0; i < 6; i++)
         {
             cartes.Add(new Cards(1, "B","Immeuble 83", 1, 1));
@@ -39,10 +40,10 @@ public class Pile
 
         //Debug
        // Debug.Log(cartes.Count);
-        foreach (Cards c in cartes)
+      /*  foreach (Cards c in cartes)
         {
             Debug.Log(c);
-        }
+        }*/
     }
 
     public override string ToString()
@@ -51,6 +52,13 @@ public class Pile
         return toString;
     }
 
+    void Update()
+    {
+        if(nbCartes == 0)
+        {
+            GetComponent<Button>().interactable = false;
+        }
+    }
 
 }
 

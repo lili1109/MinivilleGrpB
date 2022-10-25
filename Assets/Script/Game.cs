@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Game 
+public class Game : MonoBehaviour
 {
     [SerializeField]
     Dice de;
@@ -10,8 +10,7 @@ public class Game
     public List<Pile> Piles = new List<Pile>();
     public Game()
     {
-       
-        Piles.Add(new Pile(new Cards(1, "B", "Immeuble 83", 1, 1)));
+       /* Piles.Add(new Pile(new Cards(1, "B", "Immeuble 83", 1, 1)));
         Piles.Add(new Pile(new Cards(1, "B", "Epicerie solidaire", 1, 2)));
         Piles.Add(new Pile(new Cards(2, "V", "Musée du Papier", 2, 1)));
         Piles.Add(new Pile(new Cards(3, "R", "Bock n'Roll", 1, 2)));
@@ -27,5 +26,6 @@ public class Game
         Piles.Add(new Pile(new Cards(11, "B", "Bare Le Nil", 1, 2)));
         Piles.Add(new Pile(new Cards(11, "R", "E.Leclerc", 2, 4)));
         Piles.Add(new Pile(new Cards(12, "B", "Bord de la Charente", 4, 6)));
-    }
+   */
+        }
 }
