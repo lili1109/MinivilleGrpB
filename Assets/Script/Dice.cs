@@ -26,11 +26,8 @@ public class Dice
 	}
 	public override string ToString()
 	{
-<<<<<<< Updated upstream
+
 		string toString = this.face + "";
-=======
-		string toString =this.face + "";
->>>>>>> Stashed changes
 		return toString;
 	}
 }
