@@ -28,9 +28,13 @@ public class Pile : MonoBehaviour
 
     void Update()
     {
-        if(nbCartes == 0 || prix > mainJoueur.GetComponent<Player>().argent || mainJoueur.GetComponent<Player>().joue ==false)
+        if(nbCartes == 0 || prix > mainJoueur.GetComponent<Player>().argent || mainJoueur.GetComponent<Player>().piles ==false)
         {
             GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            GetComponent<Button>().interactable = true;
         }
     }
 
