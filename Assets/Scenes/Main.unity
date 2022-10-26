@@ -248,7 +248,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -685,7 +685,6 @@ GameObject:
   - component: {fileID: 258722914}
   - component: {fileID: 258722917}
   - component: {fileID: 258722916}
-  - component: {fileID: 258722915}
   m_Layer: 5
   m_Name: "D\xE91"
   m_TagString: Untagged
@@ -713,25 +712,6 @@ RectTransform:
   m_AnchoredPosition: {x: -72.97, y: 22}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &258722915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 258722913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1249a0d29eb2aa94cb205a04163d8d7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Faces:
-  - {fileID: 21300000, guid: 2d140c3d1aa951f42bd6f1024674e295, type: 3}
-  - {fileID: 21300000, guid: 39dc3c94ea377824dada5f96dfdd6a45, type: 3}
-  - {fileID: 21300000, guid: 4cc6922a343111a419ac7e6c390f383a, type: 3}
-  - {fileID: 21300000, guid: d4540c747f122e247af031dd1213608b, type: 3}
-  - {fileID: 21300000, guid: f4158b2696cd57a46905d06dc55715f2, type: 3}
-  - {fileID: 21300000, guid: 515a3e2d5c698ef4eb55778335359cb9, type: 3}
 --- !u!114 &258722916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2503,6 +2483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1138832942}
+  - component: {fileID: 1138832943}
   m_Layer: 5
   m_Name: De
   m_TagString: Untagged
@@ -2536,6 +2517,29 @@ RectTransform:
   m_AnchoredPosition: {x: -675, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1138832943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138832941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1249a0d29eb2aa94cb205a04163d8d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Faces:
+  - {fileID: 21300000, guid: 2d140c3d1aa951f42bd6f1024674e295, type: 3}
+  - {fileID: 21300000, guid: 39dc3c94ea377824dada5f96dfdd6a45, type: 3}
+  - {fileID: 21300000, guid: 4cc6922a343111a419ac7e6c390f383a, type: 3}
+  - {fileID: 21300000, guid: d4540c747f122e247af031dd1213608b, type: 3}
+  - {fileID: 21300000, guid: f4158b2696cd57a46905d06dc55715f2, type: 3}
+  - {fileID: 21300000, guid: 515a3e2d5c698ef4eb55778335359cb9, type: 3}
+  "d\xE91": {fileID: 258722913}
+  "d\xE92": {fileID: 1901900445}
+  score: 0
+  scoreTotal: {fileID: 2029815995}
 --- !u!1 &1153724994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3959,25 +3963,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 258722915}
+      - m_Target: {fileID: 1138832943}
         m_TargetAssemblyTypeName: Dice, Assembly-CSharp
         m_MethodName: Throw2
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 258722913}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1901900448}
-        m_TargetAssemblyTypeName: Dice, Assembly-CSharp
-        m_MethodName: Throw2
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1901900445}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4246,13 +4238,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 258722915}
+      - m_Target: {fileID: 1138832943}
         m_TargetAssemblyTypeName: Dice, Assembly-CSharp
         m_MethodName: Throw
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1901900445}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5090,7 +5082,6 @@ GameObject:
   - component: {fileID: 1901900449}
   - component: {fileID: 1901900447}
   - component: {fileID: 1901900446}
-  - component: {fileID: 1901900448}
   m_Layer: 5
   m_Name: "D\xE92"
   m_TagString: Untagged
@@ -5136,25 +5127,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901900445}
   m_CullTransparentMesh: 1
---- !u!114 &1901900448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901900445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1249a0d29eb2aa94cb205a04163d8d7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Faces:
-  - {fileID: 21300000, guid: 2d140c3d1aa951f42bd6f1024674e295, type: 3}
-  - {fileID: 21300000, guid: 39dc3c94ea377824dada5f96dfdd6a45, type: 3}
-  - {fileID: 21300000, guid: 4cc6922a343111a419ac7e6c390f383a, type: 3}
-  - {fileID: 21300000, guid: d4540c747f122e247af031dd1213608b, type: 3}
-  - {fileID: 21300000, guid: f4158b2696cd57a46905d06dc55715f2, type: 3}
-  - {fileID: 21300000, guid: 515a3e2d5c698ef4eb55778335359cb9, type: 3}
 --- !u!224 &1901900449
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5495,7 +5467,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 62385030}
   m_HandleRect: {fileID: 62385029}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6033,7 +6005,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: sc
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6042,8 +6014,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6060,13 +6032,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
