@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public string nom;
     public int nbCartes;
     public int argent;
+    public bool joue;
     [SerializeField]
     GameObject pieces;
     [SerializeField]

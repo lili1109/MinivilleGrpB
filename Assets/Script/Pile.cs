@@ -8,7 +8,7 @@ public class Pile : MonoBehaviour
 
     public int nbCartes;
     public GameObject mainJoueur;
-
+    int prix;
     public Pile()
     {
         nbCartes = 6;       
@@ -17,6 +17,7 @@ public class Pile : MonoBehaviour
     void Awake()
     {
         GetComponent<Image>().sprite = GetComponent<Card>().sprCarte;
+        prix = GetComponent<Card>().prix;
     }
 
     public override string ToString()
@@ -27,7 +28,7 @@ public class Pile : MonoBehaviour
 
     void Update()
     {
-        if(nbCartes == 0)
+        if(nbCartes == 0 || prix > mainJoueur.GetComponent<Player>().argent)
         {
             GetComponent<Button>().interactable = false;
         }
@@ -38,6 +39,8 @@ public class Pile : MonoBehaviour
         mainJoueur.GetComponent<Player>().mainJoueur.Add(GetComponent<Card>().Carte);
         mainJoueur.GetComponent<Player>().AfficherMain(GetComponent<Card>().Carte);
         nbCartes--;
+        mainJoueur.GetComponent<Player>().argent -= prix;
+
     }
 
 }
