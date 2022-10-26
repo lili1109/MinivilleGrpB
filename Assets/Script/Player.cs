@@ -14,9 +14,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     GameObject pieces;
     [SerializeField]
+    GameObject de;
+    [SerializeField]
     GameObject content;
     public List<GameObject> mainJoueur;
     int k = 0;
+    int scoreDe =0;
     void Awake()
     {
         nbCartes = 2;
@@ -41,6 +44,19 @@ public class Player : MonoBehaviour
         Vector3 vect = new Vector3(170.0f * k + 50.0f, -130.0f, 0.0f);
         Instantiate(carte, vect, Quaternion.identity, content.transform);
         k++;
+    }
+
+    public void tourJoueur()
+    {
+        scoreDe = de.GetComponent<Dice>().score;
+        foreach(var carte in mainJoueur)
+        {
+            if((carte.GetComponent<Card>().color == "B"|| carte.GetComponent<Card>().color == "V") && carte.GetComponent<Card>().de == scoreDe)
+            {
+                argent += carte.GetComponent<Card>().gain;
+            }
+        }
+        piles = true;
     }
    
 }
