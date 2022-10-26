@@ -1085,7 +1085,7 @@ MonoBehaviour:
   color: R
   nom: RestoU
   sprCarte: {fileID: 21300000, guid: 6bf65b02221965a468a9a1ec658924c5, type: 3}
-  Carte: {fileID: 5352410268338076450, guid: 22aaaf131af71ff43bb473b590fb15b8, type: 3}
+  Carte: {fileID: 5352410268338076450, guid: dcf6906fdd03d674784443f1f4ab7aad, type: 3}
 --- !u!1 &552947599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1136,7 @@ MonoBehaviour:
   nbCartes: 2
   argent: 3
   joue: 0
+  piles: 0
   pieces: {fileID: 754771164}
   content: {fileID: 2006253345}
   mainJoueur:
@@ -3269,7 +3270,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1384259708}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1384259710}
+        m_TargetAssemblyTypeName: Pile, Assembly-CSharp
+        m_MethodName: Onclick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1384259708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3339,8 +3352,8 @@ MonoBehaviour:
   prix: 7
   color: B
   nom: CnamEnjmin
-  sprCarte: {fileID: 21300000, guid: 0fcac316f7bfad2478d887bd2bfa01bb, type: 3}
-  Carte: {fileID: 0}
+  sprCarte: {fileID: 21300000, guid: b6feb1812ec883f4c86ca7efd453864d, type: 3}
+  Carte: {fileID: 5352410268338076450, guid: 5e0c8c4ceb86aa84195dd96e518e574c, type: 3}
 --- !u!1 &1390443142
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,6 +3683,7 @@ MonoBehaviour:
   nbCartes: 0
   argent: 0
   joue: 0
+  piles: 0
   pieces: {fileID: 1000270581}
   content: {fileID: 1972845453}
   mainJoueur:
@@ -3995,7 +4009,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab32e1e3ae7947b418e5dab7f3647750, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2cb7e620f82eb9a498d643f4c3e2ff42, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4372,7 +4386,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1771449700}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1771449702}
+        m_TargetAssemblyTypeName: Pile, Assembly-CSharp
+        m_MethodName: Onclick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1771449700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4442,8 +4468,8 @@ MonoBehaviour:
   prix: 3
   color: B
   nom: CGR
-  sprCarte: {fileID: 21300000, guid: 0fcac316f7bfad2478d887bd2bfa01bb, type: 3}
-  Carte: {fileID: 0}
+  sprCarte: {fileID: 21300000, guid: de348547f0113194ab935ae49c7026eb, type: 3}
+  Carte: {fileID: 5352410268338076450, guid: 22aaaf131af71ff43bb473b590fb15b8, type: 3}
 --- !u!1 &1795881890
 GameObject:
   m_ObjectHideFlags: 0
@@ -5467,7 +5493,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 62385030}
   m_HandleRect: {fileID: 62385029}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5875,7 +5901,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2021940268}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2021940270}
+        m_TargetAssemblyTypeName: Pile, Assembly-CSharp
+        m_MethodName: Onclick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2021940268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5945,8 +5983,8 @@ MonoBehaviour:
   prix: 3
   color: B
   nom: Cosmopolite
-  sprCarte: {fileID: 21300000, guid: 0fcac316f7bfad2478d887bd2bfa01bb, type: 3}
-  Carte: {fileID: 0}
+  sprCarte: {fileID: 21300000, guid: 9b18b275ad6c68d4198de33b3871b00f, type: 3}
+  Carte: {fileID: 5352410268338076450, guid: a8fcf25beaffe8946b56c875901dd1f4, type: 3}
 --- !u!1 &2029815995
 GameObject:
   m_ObjectHideFlags: 0
