@@ -5,49 +5,46 @@ using UnityEngine.UI;
 
 public class Dice : MonoBehaviour
 {
-	public Sprite Face1;
-	public Sprite Face2;
-	public Sprite Face3;
-	public Sprite Face4;
-	public Sprite Face5;
-	public Sprite Face6;
+	public Sprite[] Faces;
 	private int nbFaces = 6;
 	private int face = 1;
+	Image dé;
 	System.Random random = new System.Random();
 
     public void Start()
     {
-		Lancer();
+		dé = GetComponent<Image>();
     }
 
-    public void Lancer()
+	public void Throw(GameObject dé)
 	{
-		face = Random.Range(1, 6);	
-        if (face == 1)
-        {
-			this.GetComponent<Image>().sprite = Face1;
-        } 
-		if (face == 2)
-        {
-			this.GetComponent<Image>().sprite = Face2;
-		}
-		if (face == 3)
-        {
-			this.GetComponent<Image>().sprite = Face3;
-		}
-		if (face == 4)
-        {
-			this.GetComponent<Image>().sprite = Face4;
-		}
-		if (face == 5)
-        {
-			this.GetComponent<Image>().sprite = Face5;
-		}
-		if (face == 6)
-		{
-			this.GetComponent<Image>().sprite = Face6;
-		}
+		dé.SetActive(false);
+		StartCoroutine("Shuffle");
+		Lancer();
+    }
+	public void Throw2(GameObject dé)
+	{
+		dé.SetActive(true);
+		StartCoroutine("Shuffle");
+		Lancer();
+	}
+	public void Lancer()
+	{
+		face = Random.Range(0, 6);
+		dé.sprite = Faces[face];
 		Debug.Log(face);
+	}
+
+	private IEnumerator Shuffle()
+	{
+		int randomDiceSide = 0;
+
+		for (int i = 0; i <= 14; i++)
+		{
+			randomDiceSide = Random.Range(0, 6);
+			dé.sprite = Faces[randomDiceSide];
+			yield return new WaitForSeconds(0.05f);
+		}
 	}
 	public override string ToString()
 	{
