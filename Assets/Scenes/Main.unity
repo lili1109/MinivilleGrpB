@@ -673,7 +673,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206753744}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!1 &258722913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,7 +1903,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90db92d0421c7e41a420d6441d11417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: AmbienceMusic
+    clip: {fileID: 8300000, guid: 27b1944943b14824c9ea85578791dcf4, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &830386679
 Transform:
   m_ObjectHideFlags: 0
