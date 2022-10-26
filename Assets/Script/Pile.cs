@@ -9,15 +9,18 @@ public class Pile : MonoBehaviour
     public int nbCartes;
     public GameObject mainJoueur;
     int prix;
+    public bool passer;
     public Pile()
     {
         nbCartes = 6;       
     }
 
     void Awake()
-    {
-        GetComponent<Image>().sprite = GetComponent<Card>().sprCarte;
-        prix = GetComponent<Card>().prix;
+    { if (passer == false)
+        {
+            GetComponent<Image>().sprite = GetComponent<Card>().sprCarte;
+            prix = GetComponent<Card>().prix;
+        }
     }
 
     public override string ToString()
@@ -46,6 +49,10 @@ public class Pile : MonoBehaviour
         mainJoueur.GetComponent<Player>().argent -= prix;
         mainJoueur.GetComponent<Player>().piles = false;
 
+    }
+    public void Passer()
+    {
+        mainJoueur.GetComponent<Player>().piles = false;
     }
 
 }

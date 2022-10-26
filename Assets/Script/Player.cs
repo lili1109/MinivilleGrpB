@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public string nom;
     public int nbCartes;
     public int argent;
+    private int changementSolde;
     public bool joue;
     public bool piles;
     [SerializeField]
@@ -54,18 +55,26 @@ public class Player : MonoBehaviour
         {
             if((carte.GetComponent<Card>().color == "B"|| carte.GetComponent<Card>().color == "V") && carte.GetComponent<Card>().de == scoreDe)
             {
-                argent += carte.GetComponent<Card>().gain;
+                int gainCarte = carte.GetComponent<Card>().gain;
+                argent += gainCarte;
+                changementSolde = gainCarte;
             }
         }
         foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
         {
             if(carte.GetComponent<Card>().color == "R" && carte.GetComponent<Card>().de == scoreDe)
             {
+                
                 argent -= carte.GetComponent<Card>().gain;
+                ennemi.GetComponent<Player>().argent += carte.GetComponent<Card>().gain;
+            }else if(carte.GetComponent<Card>().color == "B"&& carte.GetComponent<Card>().de == scoreDe)
+            {
                 ennemi.GetComponent<Player>().argent += carte.GetComponent<Card>().gain;
             }
         }
         piles = true;
     }
+
+    
    
 }
