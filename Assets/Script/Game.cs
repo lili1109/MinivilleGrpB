@@ -7,7 +7,7 @@ public class Game : MonoBehaviour
     [SerializeField]
     Dice de;
     
-    public List<Pile> Piles = new List<Pile>();
+    
     public Game()
     {
        /* Piles.Add(new Pile(new Cards(1, "B", "Immeuble 83", 1, 1)));

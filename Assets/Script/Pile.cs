@@ -10,9 +10,7 @@ public class Pile : MonoBehaviour
 
     public Pile()
     {
-        nbCartes = 6;
-        
-        
+        nbCartes = 6;       
     }
 
     void Awake()
@@ -32,6 +30,11 @@ public class Pile : MonoBehaviour
         {
             GetComponent<Button>().interactable = false;
         }
+    }
+
+    void Onclick()
+    {
+
     }
 
 }
