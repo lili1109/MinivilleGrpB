@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
-    void Awake()
+    /*void Awake()
     {
         foreach (Sound s in sounds)
         {
@@ -17,14 +17,14 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
-    }
+    }*/
 
-    void Start ()
+    /*void Start ()
     {
         Play("AmbienceMusic");
-    }
+    }*/
 
-    public void Play(string name)
+    /*public void Play(string name)
     {
         if(s == null)
         {
@@ -38,5 +38,5 @@ public class AudioManager : MonoBehaviour
         }        
         // Code for playing the sound to put in scripts //
         // FindObjectOfType<AudioManager>().Play("SoundToPlay");
-    }
+    }*/
 }
