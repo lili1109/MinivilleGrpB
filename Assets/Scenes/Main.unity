@@ -2067,7 +2067,7 @@ MonoBehaviour:
   sounds:
   - name: BarAmbience
     clip: {fileID: 8300000, guid: 683a8a4e0387f0b43a0a4518000ae6d2, type: 3}
-    volume: 0
+    volume: 0.603
     pitch: 1
     loop: 1
     source: {fileID: 0}
