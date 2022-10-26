@@ -1138,6 +1138,7 @@ MonoBehaviour:
   joue: 0
   piles: 0
   pieces: {fileID: 754771164}
+  de: {fileID: 0}
   content: {fileID: 2006253345}
   mainJoueur:
   - {fileID: 4644000910650296905, guid: ac779cd250812784f8f515f0810f4c3b, type: 3}
@@ -2541,6 +2542,9 @@ MonoBehaviour:
   "d\xE92": {fileID: 1901900445}
   score: 0
   scoreTotal: {fileID: 2029815995}
+  btnDe1: {fileID: 1764777501}
+  btnDe2: {fileID: 1614161911}
+  mainJoueur: {fileID: 1443508333}
 --- !u!1 &1153724994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,6 +3689,7 @@ MonoBehaviour:
   joue: 0
   piles: 0
   pieces: {fileID: 1000270581}
+  de: {fileID: 1138832941}
   content: {fileID: 1972845453}
   mainJoueur:
   - {fileID: 4644000910650296905, guid: ac779cd250812784f8f515f0810f4c3b, type: 3}
@@ -6043,7 +6048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -12,16 +12,24 @@ public class Dice : MonoBehaviour
 	private int face = 1;
 	public int score;
 	[SerializeField] GameObject scoreTotal;
+	public GameObject btnDe1;
+    public GameObject btnDe2;
+	public GameObject mainJoueur;
 
     public void Throw()
     {
         dé2.SetActive(false);
         StartCoroutine("Shuffle");
+        btnDe1.GetComponent<Button>().interactable = false;
+        btnDe2.GetComponent<Button>().interactable = false;
     }
     public void Throw2()
     {
         dé2.SetActive(true);
         StartCoroutine("Shuffle2");
+        btnDe1.GetComponent<Button>().interactable = false;
+        btnDe2.GetComponent<Button>().interactable = false;
+       
     }
 
     private IEnumerator Shuffle2()
@@ -39,7 +47,8 @@ public class Dice : MonoBehaviour
 		}
 		score = randomDiceSide + randomDiceSide2 + 2;
 		scoreTotal.GetComponent<TMP_Text>().text = score.ToString();
-	}
+        mainJoueur.GetComponent<Player>().tourJoueur();
+    }
 	private IEnumerator Shuffle()
 	{
 		int randomDiceSide = 0;
@@ -52,11 +61,19 @@ public class Dice : MonoBehaviour
 		}
 		score = randomDiceSide + 1;
 		scoreTotal.GetComponent<TMP_Text>().text = score.ToString();
-	}
+        mainJoueur.GetComponent<Player>().tourJoueur();
 
-	public override string ToString()
+    }
+
+    public override string ToString()
 	{
 		string toString = face + "";
 		return toString;
 	}
+
+	public void activeDes()
+	{
+        btnDe1.GetComponent<Button>().interactable = true;
+        btnDe2.GetComponent<Button>().interactable = true;
+    }
 }
