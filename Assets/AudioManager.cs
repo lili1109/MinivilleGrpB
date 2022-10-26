@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
 
-    public Sound[] sounds;
+   /* public Sound[] sounds;
 
     void Awake()
     {
@@ -38,5 +38,5 @@ public class AudioManager : MonoBehaviour
         }        
         // Code for playing the sound to put in scripts //
         // FindObjectOfType<AudioManager>().Play("SoundToPlay");
-    }
+    }*/
 }

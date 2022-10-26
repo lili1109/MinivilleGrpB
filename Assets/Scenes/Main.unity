@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 194262802}
   - component: {fileID: 194262801}
   - component: {fileID: 194262804}
+  - component: {fileID: 194262805}
   m_Layer: 5
   m_Name: "H\xF4tel de ville"
   m_TagString: Untagged
@@ -311,6 +312,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &194262805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194262799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 9
+  gain: 1
+  prix: 3
+  color: R
+  nom: HotelDeVille
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &206753744
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +522,7 @@ GameObject:
   - component: {fileID: 350963190}
   - component: {fileID: 350963189}
   - component: {fileID: 350963192}
+  - component: {fileID: 350963193}
   m_Layer: 5
   m_Name: "Mus\xE9e de la BD"
   m_TagString: Untagged
@@ -625,6 +645,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &350963193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350963187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 4
+  gain: 3
+  prix: 2
+  color: V
+  nom: MuseeBD
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &376567694
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +676,7 @@ GameObject:
   - component: {fileID: 376567697}
   - component: {fileID: 376567696}
   - component: {fileID: 376567699}
+  - component: {fileID: 376567700}
   m_Layer: 5
   m_Name: RestoU
   m_TagString: Untagged
@@ -760,6 +799,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &376567700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376567694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 5
+  gain: 2
+  prix: 4
+  color: R
+  nom: RestoU
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &479210892
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +956,7 @@ GameObject:
   - component: {fileID: 565069528}
   - component: {fileID: 565069527}
   - component: {fileID: 565069530}
+  - component: {fileID: 565069531}
   m_Layer: 5
   m_Name: Epicerie Solidaire
   m_TagString: Untagged
@@ -990,7 +1048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c831defdd3f2bcc47bf130b89a66aa12, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1021,6 +1079,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &565069531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565069525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 1
+  gain: 1
+  prix: 2
+  color: B
+  nom: EpicerieSolidaire
+  sprCarte: {fileID: 21300000, guid: c831defdd3f2bcc47bf130b89a66aa12, type: 3}
 --- !u!1 &645877755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1187,7 @@ GameObject:
   - component: {fileID: 714726098}
   - component: {fileID: 714726097}
   - component: {fileID: 714726100}
+  - component: {fileID: 714726101}
   m_Layer: 5
   m_Name: Bord de la Charente
   m_TagString: Untagged
@@ -1233,6 +1310,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &714726101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714726095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 12
+  gain: 4
+  prix: 6
+  color: B
+  nom: Charente
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &735931509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,11 +1560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90db92d0421c7e41a420d6441d11417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: AmbienceMusic
-    clip: {fileID: 8300000, guid: 27b1944943b14824c9ea85578791dcf4, type: 3}
-    volume: 0.78
-    pitch: 1
 --- !u!4 &830386679
 Transform:
   m_ObjectHideFlags: 0
@@ -1862,6 +1952,7 @@ GameObject:
   - component: {fileID: 1041724479}
   - component: {fileID: 1041724478}
   - component: {fileID: 1041724481}
+  - component: {fileID: 1041724482}
   m_Layer: 5
   m_Name: Bar Le Nil
   m_TagString: Untagged
@@ -1984,6 +2075,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &1041724482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041724476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 11
+  gain: 1
+  prix: 2
+  color: B
+  nom: BarLeNil
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &1138832941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +2145,7 @@ GameObject:
   - component: {fileID: 1153724997}
   - component: {fileID: 1153724996}
   - component: {fileID: 1153724999}
+  - component: {fileID: 1153725000}
   m_Layer: 5
   m_Name: E.Leclerc
   m_TagString: Untagged
@@ -2158,6 +2268,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &1153725000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153724994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 11
+  gain: 2
+  prix: 4
+  color: R
+  nom: Leclerc
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &1276601104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,6 +2375,7 @@ GameObject:
   - component: {fileID: 1314139399}
   - component: {fileID: 1314139398}
   - component: {fileID: 1314139401}
+  - component: {fileID: 1314139402}
   m_Layer: 5
   m_Name: Jardin vert
   m_TagString: Untagged
@@ -2369,6 +2498,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &1314139402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314139396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 5
+  gain: 1
+  prix: 2
+  color: B
+  nom: JardinVert
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &1325235715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,6 +2529,7 @@ GameObject:
   - component: {fileID: 1325235718}
   - component: {fileID: 1325235717}
   - component: {fileID: 1325235720}
+  - component: {fileID: 1325235721}
   m_Layer: 5
   m_Name: "Mus\xE9e du Papier"
   m_TagString: Untagged
@@ -2473,7 +2621,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a94c67781e28054596f6ae70c7635f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2504,6 +2652,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &1325235721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325235715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 2
+  gain: 2
+  prix: 1
+  color: V
+  nom: MuseePapier
+  sprCarte: {fileID: 21300000, guid: 8a94c67781e28054596f6ae70c7635f2, type: 3}
 --- !u!1 &1384259705
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,6 +2683,7 @@ GameObject:
   - component: {fileID: 1384259708}
   - component: {fileID: 1384259707}
   - component: {fileID: 1384259710}
+  - component: {fileID: 1384259711}
   m_Layer: 5
   m_Name: Cnam Enjmin
   m_TagString: Untagged
@@ -2639,6 +2806,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &1384259711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384259705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 6
+  gain: 5
+  prix: 7
+  color: B
+  nom: CnamEnjmin
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &1443508333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2702,6 +2887,7 @@ GameObject:
   - component: {fileID: 1470705410}
   - component: {fileID: 1470705409}
   - component: {fileID: 1470705412}
+  - component: {fileID: 1470705413}
   m_Layer: 5
   m_Name: "Bock n\u2019Roll"
   m_TagString: Untagged
@@ -2824,6 +3010,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &1470705413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470705407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 3
+  gain: 1
+  prix: 2
+  color: R
+  nom: BockNRoll
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &1526578085
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,6 +3403,7 @@ GameObject:
   - component: {fileID: 1771449700}
   - component: {fileID: 1771449699}
   - component: {fileID: 1771449702}
+  - component: {fileID: 1771449703}
   m_Layer: 5
   m_Name: CGR
   m_TagString: Untagged
@@ -3321,6 +3526,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &1771449703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771449697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 7
+  gain: 1
+  prix: 3
+  color: B
+  nom: CGR
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &1795881890
 GameObject:
   m_ObjectHideFlags: 0
@@ -3334,6 +3557,7 @@ GameObject:
   - component: {fileID: 1795881893}
   - component: {fileID: 1795881892}
   - component: {fileID: 1795881895}
+  - component: {fileID: 1795881896}
   m_Layer: 5
   m_Name: Immeuble 83
   m_TagString: Untagged
@@ -3456,6 +3680,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &1795881896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795881890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 1
+  gain: 1
+  prix: 1
+  color: B
+  nom: Immeuble83
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &1822757469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3469,6 +3711,7 @@ GameObject:
   - component: {fileID: 1822757472}
   - component: {fileID: 1822757471}
   - component: {fileID: 1822757474}
+  - component: {fileID: 1822757475}
   m_Layer: 5
   m_Name: 'Patinoire '
   m_TagString: Untagged
@@ -3591,6 +3834,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &1822757475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822757469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 8
+  gain: 2
+  prix: 2
+  color: V
+  nom: Patinoire
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &1866454917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,6 +3865,7 @@ GameObject:
   - component: {fileID: 1866454920}
   - component: {fileID: 1866454919}
   - component: {fileID: 1866454922}
+  - component: {fileID: 1866454923}
   m_Layer: 5
   m_Name: Gare SNCF
   m_TagString: Untagged
@@ -3726,6 +3988,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &1866454923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866454917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 10
+  gain: 3
+  prix: 4
+  color: V
+  nom: GareSNCF
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
 --- !u!1 &1982293978
 GameObject:
   m_ObjectHideFlags: 0
@@ -3860,6 +4140,7 @@ GameObject:
   - component: {fileID: 2021940268}
   - component: {fileID: 2021940267}
   - component: {fileID: 2021940270}
+  - component: {fileID: 2021940271}
   m_Layer: 5
   m_Name: 'Cosmopolite '
   m_TagString: Untagged
@@ -3982,3 +4263,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
+--- !u!114 &2021940271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021940265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ef036f9605e604db8004aa47f7a457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  de: 7
+  gain: 2
+  prix: 3
+  color: B
+  nom: Cosmopolite
+  sprCarte: {fileID: 21300000, guid: 198c283d715eeb44185b57bc556ccb64, type: 3}
