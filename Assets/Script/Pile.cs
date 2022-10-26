@@ -7,6 +7,7 @@ public class Pile : MonoBehaviour
 {
 
     public int nbCartes;
+    public GameObject mainJoueur;
 
     public Pile()
     {
@@ -32,9 +33,11 @@ public class Pile : MonoBehaviour
         }
     }
 
-    void Onclick()
+    public void Onclick()
     {
-
+        mainJoueur.GetComponent<Player>().mainJoueur.Add(GetComponent<Card>().Carte);
+        mainJoueur.GetComponent<Player>().AfficherMain(GetComponent<Card>().Carte);
+        nbCartes--;
     }
 
 }

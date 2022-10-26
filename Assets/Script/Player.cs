@@ -14,13 +14,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     GameObject content;
     public List<GameObject> mainJoueur;
-
+    int k = 0;
     void Awake()
     {
         nbCartes = 2;
         argent = 3;
-        AfficherMain();
-       
+        foreach (var carte in mainJoueur)
+        {
+            AfficherMain(carte);
+        }
     }
     void Start()
     {
@@ -32,15 +34,11 @@ public class Player : MonoBehaviour
         pieces.GetComponent<TMP_Text>().text = argent.ToString();
     }
 
-    void AfficherMain()
+    public void AfficherMain(GameObject carte)
     {
-        int k = 0;
-        foreach (var carte in mainJoueur)
-        {
-            Vector3 vect = new Vector3(170.0f * k + 50.0f, -130.0f, 0.0f);
-            Instantiate(carte, vect, Quaternion.identity, content.transform);
-            k++;
-        }
+        Vector3 vect = new Vector3(170.0f * k + 50.0f, -130.0f, 0.0f);
+        Instantiate(carte, vect, Quaternion.identity, content.transform);
+        k++;
     }
    
 }

@@ -10,6 +10,7 @@ public class Card : MonoBehaviour
     public string color;
     public string nom;
     public Sprite sprCarte;
+    public GameObject Carte;
 
     public override string ToString()
     {
