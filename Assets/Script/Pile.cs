@@ -8,11 +8,16 @@ public class Pile : MonoBehaviour
 
     public int nbCartes;
 
-    public Pile(Cards carte)
+    public Pile()
     {
         nbCartes = 6;
         
         
+    }
+
+    void Awake()
+    {
+        GetComponent<Image>().sprite = GetComponent<Card>().sprCarte;
     }
 
     public override string ToString()
