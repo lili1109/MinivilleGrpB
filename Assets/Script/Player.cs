@@ -11,15 +11,26 @@ public class Player : MonoBehaviour
     public int argent;
     [SerializeField]
     GameObject pieces;
+    public List<GameObject> mainJoueur;
 
-    void Start()
+    void Awake()
     {
         nbCartes = 2;
         argent = 3;
+        foreach(var carte in mainJoueur)
+        {
+            
+        }
+       
+    }
+    void Start()
+    {
+       
     }
 
     void Update()
     {
+
         pieces.GetComponent<TMP_Text>().text = argent.ToString();
     }
    

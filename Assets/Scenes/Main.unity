@@ -943,6 +943,7 @@ MonoBehaviour:
   nbCartes: 0
   argent: 0
   pieces: {fileID: 754771164}
+  mainJoueur: []
 --- !u!1 &565069525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,7 +1548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &830386678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1560,6 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90db92d0421c7e41a420d6441d11417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sounds: []
 --- !u!4 &830386679
 Transform:
   m_ObjectHideFlags: 0
@@ -2874,6 +2876,9 @@ MonoBehaviour:
   nbCartes: 0
   argent: 0
   pieces: {fileID: 1000270581}
+  mainJoueur:
+  - {fileID: 6478815518616973778, guid: 9c93229c878b37b438e6cd32190b4cdc, type: 3}
+  - {fileID: 6478815518616973778, guid: 96cf855485b64864ea9a0237cf8de762, type: 3}
 --- !u!1 &1470705407
 GameObject:
   m_ObjectHideFlags: 0
