@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public List<GameObject> mainJoueur;
     int k = 0;
     int scoreDe =0;
+    public GameObject ennemi;
     void Awake()
     {
         nbCartes = 2;
@@ -54,6 +55,14 @@ public class Player : MonoBehaviour
             if((carte.GetComponent<Card>().color == "B"|| carte.GetComponent<Card>().color == "V") && carte.GetComponent<Card>().de == scoreDe)
             {
                 argent += carte.GetComponent<Card>().gain;
+            }
+        }
+        foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
+        {
+            if(carte.GetComponent<Card>().color == "R" && carte.GetComponent<Card>().de == scoreDe)
+            {
+                argent -= carte.GetComponent<Card>().gain;
+                ennemi.GetComponent<Player>().argent += carte.GetComponent<Card>().gain;
             }
         }
         piles = true;

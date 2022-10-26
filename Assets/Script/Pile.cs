@@ -44,6 +44,7 @@ public class Pile : MonoBehaviour
         mainJoueur.GetComponent<Player>().AfficherMain(GetComponent<Card>().Carte);
         nbCartes--;
         mainJoueur.GetComponent<Player>().argent -= prix;
+        mainJoueur.GetComponent<Player>().piles = false;
 
     }
 
