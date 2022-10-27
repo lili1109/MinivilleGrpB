@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   de: 3
-  gain: 2
+  gain: 1
   prix: 2
   color: R
   nom: BockNRoll

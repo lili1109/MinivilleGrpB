@@ -231,10 +231,12 @@ public class Player : MonoBehaviour
             updateScore.GetComponent<TMP_Text>().text = gainTotalMancheJoueur.ToString();
             StartCoroutine("TempsAffichageJoueur");
         }
-
-        Debug.Log("pilevalidennemi"+pileValideEnnemi.Count);
-        int nb = Random.Range(0, pileValideEnnemi.Count);
-        pileValideEnnemi[nb].GetComponent<Pile>().OnclickEnnemi();
+        if (ennemi.GetComponent<Player>().argent > 0)
+        {
+            Debug.Log("pilevalidennemi" + pileValideEnnemi.Count);
+            int nb = Random.Range(0, pileValideEnnemi.Count);
+            pileValideEnnemi[nb].GetComponent<Pile>().OnclickEnnemi();
+        }
     }
     
 }

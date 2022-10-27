@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   de: 8
-  gain: 1
+  gain: 2
   prix: 2
   color: V
   nom: Patinoire
