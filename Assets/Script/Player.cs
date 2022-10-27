@@ -72,7 +72,6 @@ public class Player : MonoBehaviour
                 gainCarte = carte.GetComponent<Card>().gain;
                 argent += gainCarte;
                 gainTotalMancheJoueur += gainCarte;
-                Debug.Log(gainCarte);
             }
         }
         foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
@@ -88,7 +87,6 @@ public class Player : MonoBehaviour
                 gainTotalMancheEnnemi += gainCarte;
                 ennemi.GetComponent<Player>().argent += gainCarte;
                 updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
-                Debug.Log(gainCarte);
             }
             else if (colorCarte == "B" && deCarte == scoreDe)
             {
@@ -96,7 +94,6 @@ public class Player : MonoBehaviour
                 ennemi.GetComponent<Player>().argent += gainCarte;
                 gainTotalMancheEnnemi += gainCarte;
                 updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
-                Debug.Log(gainCarte);
             }
         }
         if (gainTotalMancheEnnemi > 0)
@@ -148,13 +145,11 @@ public class Player : MonoBehaviour
 
         if (!de2)
         {
-            de.GetComponent<Dice>().Throw();
-            Debug.Log("Throw");
+            de.GetComponent<Dice>().ThrowEnnemi();
         }
         else
         {
-            de.GetComponent<Dice>().Throw2();
-            Debug.Log("Throw2");
+            de.GetComponent<Dice>().Throw2Ennemi();
         }
 
     }
@@ -172,11 +167,9 @@ public class Player : MonoBehaviour
             string colorCarte = carte.GetComponent<Card>().color;
             if ((colorCarte == "B" || colorCarte == "V") && carte.GetComponent<Card>().de == scoreDe)
             {
-                Debug.Log("carte bleu ou verte");
                 gainCarte = carte.GetComponent<Card>().gain;
                 gainTotalMancheEnnemi += gainCarte;
                 ennemi.GetComponent<Player>().argent += gainCarte;
-                Debug.Log(gainCarte);
             }
         }
         foreach (var carte in mainJoueur)
@@ -185,7 +178,6 @@ public class Player : MonoBehaviour
             if (colorCarte == "R" && carte.GetComponent<Card>().de == scoreDe)
             {
                 gainCarte = carte.GetComponent<Card>().gain;
-                Debug.Log(gainCarte);
                 argent += gainCarte;
                 gainTotalMancheJoueur += gainCarte;
                 gainTotalMancheEnnemi -= gainCarte;
@@ -199,7 +191,6 @@ public class Player : MonoBehaviour
                 argent += gainCarte;
                 gainTotalMancheJoueur += gainCarte;
                 updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
-                Debug.Log(gainCarte);
             }
         }
         List<GameObject> pileValideEnnemi = new List<GameObject>();
@@ -208,7 +199,6 @@ public class Player : MonoBehaviour
             if (ennemi.GetComponent<Player>().argent >= piles.GetComponent<Card>().prix && piles.GetComponent<Pile>().nbCartes > 0)
             {
                 pileValideEnnemi.Add(piles);
-                Debug.Log(piles.GetComponent<Card>().nom +"-- "+piles.GetComponent<Card>().prix);
             }
         }
         if (gainTotalMancheEnnemi > 0)
@@ -237,6 +227,7 @@ public class Player : MonoBehaviour
             int nb = Random.Range(0, pileValideEnnemi.Count);
             pileValideEnnemi[nb].GetComponent<Pile>().OnclickEnnemi();
         }
+        de.GetComponent<Dice>().activeDes();
     }
     
 }

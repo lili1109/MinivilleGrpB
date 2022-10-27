@@ -22,6 +22,9 @@ public class Dice : MonoBehaviour
         StartCoroutine("Shuffle");
         btnDe1.GetComponent<Button>().interactable = false;
         btnDe2.GetComponent<Button>().interactable = false;
+        mainJoueur.GetComponent<Player>().joue = true;
+
+
     }
     public void Throw2()
     {
@@ -29,7 +32,24 @@ public class Dice : MonoBehaviour
         StartCoroutine("Shuffle2");
         btnDe1.GetComponent<Button>().interactable = false;
         btnDe2.GetComponent<Button>().interactable = false;
-       
+        mainJoueur.GetComponent<Player>().joue = true;
+
+
+    }
+    public void ThrowEnnemi()
+    {
+        dé2.SetActive(false);
+        StartCoroutine("Shuffle");
+        btnDe1.GetComponent<Button>().interactable = false;
+        btnDe2.GetComponent<Button>().interactable = false;
+    }
+    public void Throw2Ennemi()
+    {
+        dé2.SetActive(true);
+        StartCoroutine("Shuffle2");
+        btnDe1.GetComponent<Button>().interactable = false;
+        btnDe2.GetComponent<Button>().interactable = false;
+
     }
 
     private IEnumerator Shuffle2()
@@ -47,10 +67,15 @@ public class Dice : MonoBehaviour
 		}
 		score = randomDiceSide + randomDiceSide2 + 2;
 		scoreTotal.GetComponent<TMP_Text>().text = score.ToString();
-		if (mainJoueur.GetComponent<Player>().joue == true)
-		{
-			mainJoueur.GetComponent<Player>().tourJoueur();
-		}
+        if (mainJoueur.GetComponent<Player>().joue == true)
+        {
+            mainJoueur.GetComponent<Player>().tourJoueur();
+        }
+        else if (mainJoueur.GetComponent<Player>().bEnnemi == true)
+        {
+            mainJoueur.GetComponent<Player>().piles = false;
+            mainJoueur.GetComponent<Player>().tourEnnemi();
+        }
     }
 	private IEnumerator Shuffle()
 	{
@@ -69,6 +94,7 @@ public class Dice : MonoBehaviour
             mainJoueur.GetComponent<Player>().tourJoueur();
         }else if(mainJoueur.GetComponent<Player>().bEnnemi == true)
 		{
+            mainJoueur.GetComponent<Player>().piles = false;
             mainJoueur.GetComponent<Player>().tourEnnemi();
         }
     }
