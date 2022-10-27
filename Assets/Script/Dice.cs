@@ -20,15 +20,15 @@ public class Dice : MonoBehaviour
     {
         dé2.SetActive(false);
         StartCoroutine("Shuffle");
-        btnDe1.GetComponent<Button>().interactable = false;
-        btnDe2.GetComponent<Button>().interactable = false;
+        //btnDe1.GetComponent<Button>().interactable = false;
+        //btnDe2.GetComponent<Button>().interactable = false;
     }
     public void Throw2()
     {
         dé2.SetActive(true);
         StartCoroutine("Shuffle2");
-        btnDe1.GetComponent<Button>().interactable = false;
-        btnDe2.GetComponent<Button>().interactable = false;
+        //btnDe1.GetComponent<Button>().interactable = false;
+        //btnDe2.GetComponent<Button>().interactable = false;
        
     }
 
