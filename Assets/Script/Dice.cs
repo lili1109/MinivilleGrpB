@@ -20,15 +20,15 @@ public class Dice : MonoBehaviour
     {
         dé2.SetActive(false);
         StartCoroutine("Shuffle");
-        //btnDe1.GetComponent<Button>().interactable = false;
-        //btnDe2.GetComponent<Button>().interactable = false;
+        btnDe1.GetComponent<Button>().interactable = false;
+        btnDe2.GetComponent<Button>().interactable = false;
     }
     public void Throw2()
     {
         dé2.SetActive(true);
         StartCoroutine("Shuffle2");
-        //btnDe1.GetComponent<Button>().interactable = false;
-        //btnDe2.GetComponent<Button>().interactable = false;
+        btnDe1.GetComponent<Button>().interactable = false;
+        btnDe2.GetComponent<Button>().interactable = false;
        
     }
 
@@ -47,7 +47,10 @@ public class Dice : MonoBehaviour
 		}
 		score = randomDiceSide + randomDiceSide2 + 2;
 		scoreTotal.GetComponent<TMP_Text>().text = score.ToString();
-        mainJoueur.GetComponent<Player>().tourJoueur();
+		if (mainJoueur.GetComponent<Player>().joue == true)
+		{
+			mainJoueur.GetComponent<Player>().tourJoueur();
+		}
     }
 	private IEnumerator Shuffle()
 	{
@@ -61,8 +64,13 @@ public class Dice : MonoBehaviour
 		}
 		score = randomDiceSide + 1;
 		scoreTotal.GetComponent<TMP_Text>().text = score.ToString();
-        mainJoueur.GetComponent<Player>().tourJoueur();
-
+        if (mainJoueur.GetComponent<Player>().joue == true)
+        {
+            mainJoueur.GetComponent<Player>().tourJoueur();
+        }else if(mainJoueur.GetComponent<Player>().bEnnemi == true)
+		{
+            mainJoueur.GetComponent<Player>().tourEnnemi();
+        }
     }
 
     public override string ToString()

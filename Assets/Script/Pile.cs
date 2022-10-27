@@ -48,11 +48,26 @@ public class Pile : MonoBehaviour
         nbCartes--;
         mainJoueur.GetComponent<Player>().argent -= prix;
         mainJoueur.GetComponent<Player>().piles = false;
+        mainJoueur.GetComponent<Player>().joue = false;
+        mainJoueur.GetComponent<Player>().tourDeEnnemi();
+
+    }
+    public void OnclickEnnemi()
+    {
+        mainJoueur.GetComponent<Player>().ennemi.GetComponent<Player>().mainJoueur.Add(GetComponent<Card>().Carte);
+        mainJoueur.GetComponent<Player>().ennemi.GetComponent<Player>().AfficherMain(GetComponent<Card>().Carte);
+        nbCartes--;
+        mainJoueur.GetComponent<Player>().ennemi.GetComponent<Player>().argent -= prix;
+        mainJoueur.GetComponent<Player>().bEnnemi = false;
+        mainJoueur.GetComponent<Player>().de.GetComponent<Dice>().activeDes();
+        mainJoueur.GetComponent<Player>().joue = true;
 
     }
     public void Passer()
     {
         mainJoueur.GetComponent<Player>().piles = false;
+        mainJoueur.GetComponent<Player>().joue = false;
+        mainJoueur.GetComponent<Player>().tourDeEnnemi();
     }
 
 }
