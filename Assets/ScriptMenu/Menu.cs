@@ -19,13 +19,25 @@ public class Menu : MonoBehaviour
         #endif
     }
 
+    public void GoMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+
+
     public void GoOptions()
     {
         SceneManager.LoadScene("Options");
     }
 
-    public void GoMenu()
+    public void GoRules()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Rules");
+    }
+
+    public void GoCredits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }
