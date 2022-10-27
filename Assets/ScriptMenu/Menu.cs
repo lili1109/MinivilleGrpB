@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
 {
     public void StartGame()
     {
+        Destroy(GameObject.FindWithTag("MenuTheme"));
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
