@@ -1298,6 +1298,7 @@ MonoBehaviour:
   pieces: {fileID: 754771164}
   de: {fileID: 0}
   content: {fileID: 2006253345}
+  updateScore: {fileID: 0}
   mainJoueur:
   - {fileID: 4644000910650296905, guid: ac779cd250812784f8f515f0810f4c3b, type: 3}
   - {fileID: 2583360165002993561, guid: cc805f2f6ff549b4a89f4bfb8304b3d1, type: 3}
@@ -2067,7 +2068,7 @@ MonoBehaviour:
   sounds:
   - name: BarAmbience
     clip: {fileID: 8300000, guid: 683a8a4e0387f0b43a0a4518000ae6d2, type: 3}
-    volume: 0.603
+    volume: 0.265
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -3865,6 +3866,7 @@ MonoBehaviour:
   pieces: {fileID: 1000270581}
   de: {fileID: 1138832941}
   content: {fileID: 1972845453}
+  updateScore: {fileID: 0}
   mainJoueur:
   - {fileID: 4644000910650296905, guid: ac779cd250812784f8f515f0810f4c3b, type: 3}
   - {fileID: 2583360165002993561, guid: cc805f2f6ff549b4a89f4bfb8304b3d1, type: 3}
@@ -5836,7 +5838,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1032311949}
   m_HandleRect: {fileID: 1032311948}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
