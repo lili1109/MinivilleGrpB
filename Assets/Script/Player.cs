@@ -46,17 +46,17 @@ public class Player : MonoBehaviour
 
     public void Rapide()
     {
-        nbCoins = 4;
+        nbCoins = 10;
         niveau.gameObject.SetActive(false);
     }
     public void Standard()
     {
-        nbCoins = 6;
+        nbCoins = 20;
         niveau.gameObject.SetActive(false);
     }
     public void Long()
     {
-        nbCoins = 8;
+        nbCoins = 30;
         niveau.gameObject.SetActive(false);
     }
 
@@ -90,10 +90,11 @@ public class Player : MonoBehaviour
             gainTotalMancheEnnemi = 0;
             foreach (var carte in mainJoueur)
             {
-                string colorCarte = carte.GetComponent<Card>().color;
-                if ((colorCarte == "B" || colorCarte == "V") && carte.GetComponent<Card>().de == scoreDe)
+                Card card = carte.GetComponent<Card>();
+                string colorCarte = card.color;
+                if ((colorCarte == "B" || colorCarte == "V") && card.de == scoreDe)
                 {
-                    gainCarte = carte.GetComponent<Card>().gain;
+                    gainCarte = card.gain;
                     argent += gainCarte;
                     gainTotalMancheJoueur += gainCarte;
                 }
@@ -101,9 +102,10 @@ public class Player : MonoBehaviour
 
             foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
             {
-                string colorCarte = carte.GetComponent<Card>().color;
-                int carteGain = carte.GetComponent<Card>().gain;
-                int deCarte = carte.GetComponent<Card>().de;
+                Card card = carte.GetComponent<Card>();
+                string colorCarte = card.color;
+                int carteGain = card.gain;
+                int deCarte = card.de;
                 if (colorCarte == "R" && deCarte == scoreDe)
                 {
                     gainCarte = carteGain;
@@ -195,7 +197,6 @@ public class Player : MonoBehaviour
             foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
             {
                 Card card = carte.GetComponent<Card>();
-
                 string colorCarte = card.color;
                 if ((colorCarte == "B" || colorCarte == "V") && card.de == scoreDe)
                 {
@@ -206,10 +207,11 @@ public class Player : MonoBehaviour
             }
             foreach (var carte in mainJoueur)
             {
-                string colorCarte = carte.GetComponent<Card>().color;
-                if (colorCarte == "R" && carte.GetComponent<Card>().de == scoreDe)
+                Card card = carte.GetComponent<Card>();
+                string colorCarte = card.color;
+                if (colorCarte == "R" && card.de == scoreDe)
                 {
-                    gainCarte = carte.GetComponent<Card>().gain;
+                    gainCarte = card.gain;
                     argent += gainCarte;
                     gainTotalMancheJoueur += gainCarte;
                     gainTotalMancheEnnemi -= gainCarte;
@@ -217,9 +219,9 @@ public class Player : MonoBehaviour
                     updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
 
                 }
-                else if (colorCarte == "B" && carte.GetComponent<Card>().de == scoreDe)
+                else if (colorCarte == "B" && card.de == scoreDe)
                 {
-                    gainCarte = carte.GetComponent<Card>().gain;
+                    gainCarte = card.gain;
                     argent += gainCarte;
                     gainTotalMancheJoueur += gainCarte;
                     updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
