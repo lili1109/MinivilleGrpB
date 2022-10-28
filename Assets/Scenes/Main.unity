@@ -3639,7 +3639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: BarAmbience
-    clip: {fileID: 8300000, guid: 683a8a4e0387f0b43a0a4518000ae6d2, type: 3}
+    clip: {fileID: 8300000, guid: 24107be5e062fd94fa93cca8d98a8135, type: 3}
     volume: 0.265
     pitch: 1
     loop: 1
