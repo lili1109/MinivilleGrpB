@@ -2290,6 +2290,9 @@ MonoBehaviour:
   joue: 0
   piles: 0
   bEnnemi: 0
+  nbCoins: 20
+  de: {fileID: 1138832941}
+  ennemi: {fileID: 1443508333}
   pieces: {fileID: 754771164}
   content: {fileID: 2006253345}
   updateScore: {fileID: 746960328}
@@ -2300,12 +2303,9 @@ MonoBehaviour:
   endGameCalque: {fileID: 460684645}
   niveau: {fileID: 460684645}
   textEndGame: {fileID: 460684645}
-  de: {fileID: 1138832941}
   mainJoueur:
   - {fileID: 4644000910650296905, guid: ac779cd250812784f8f515f0810f4c3b, type: 3}
   - {fileID: 2583360165002993561, guid: cc805f2f6ff549b4a89f4bfb8304b3d1, type: 3}
-  nbCoins: 20
-  ennemi: {fileID: 1443508333}
   cartesPiles:
   - {fileID: 1795881890}
   - {fileID: 565069525}
@@ -2470,7 +2470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73089f621c0952847872c229e1a2e31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbCartes: 6
+  nbCartes: 4
   mainJoueur: {fileID: 1443508333}
   passer: 0
 --- !u!114 &565069531
@@ -3758,7 +3758,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -4620,7 +4620,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112181570}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1443508335}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Rejouer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1112181570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6240,6 +6252,9 @@ MonoBehaviour:
   joue: 0
   piles: 0
   bEnnemi: 0
+  nbCoins: 20
+  de: {fileID: 1138832941}
+  ennemi: {fileID: 552947599}
   pieces: {fileID: 1000270581}
   content: {fileID: 1972845453}
   updateScore: {fileID: 763745665}
@@ -6250,12 +6265,9 @@ MonoBehaviour:
   endGameCalque: {fileID: 1160561379}
   niveau: {fileID: 1714717495}
   textEndGame: {fileID: 426637623}
-  de: {fileID: 1138832941}
   mainJoueur:
   - {fileID: 4644000910650296905, guid: ac779cd250812784f8f515f0810f4c3b, type: 3}
   - {fileID: 2583360165002993561, guid: cc805f2f6ff549b4a89f4bfb8304b3d1, type: 3}
-  nbCoins: 20
-  ennemi: {fileID: 552947599}
   cartesPiles:
   - {fileID: 1795881890}
   - {fileID: 565069525}
@@ -6562,7 +6574,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1558149249}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1443508335}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1558149249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7545,7 +7569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73089f621c0952847872c229e1a2e31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbCartes: 6
+  nbCartes: 4
   mainJoueur: {fileID: 1443508333}
   passer: 0
 --- !u!114 &1795881896

@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
+    [Header("Variable Player")]
     public string nom;
     public int nbCartes, argent;
     public bool joue, piles, bEnnemi;
-    [SerializeField] GameObject pieces, content, updateScore, updateScoreEnnemy, endGameVictory, endGameDefeat, endGameDraw,endGameCalque, niveau,textEndGame;
-    public GameObject de;
-    public List<GameObject> mainJoueur;
     int k = 0;
     int scoreDe = 0;
     int gainCarte = 0;
@@ -19,53 +20,67 @@ public class Player : MonoBehaviour
     int gainTotalMancheEnnemi = 0;
     bool enJeu = true;
     public int nbCoins = 20;
+    [Header("GameObject")]
+    public GameObject de;
     public GameObject ennemi;
-    public List<GameObject> cartesPiles; 
+    [SerializeField] GameObject pieces, content, updateScore, updateScoreEnnemy, endGameVictory, endGameDefeat, endGameDraw,endGameCalque, niveau,textEndGame;
+    public List<GameObject> mainJoueur;
+    public List<GameObject> cartesPiles;
+
+   
 
     void Awake()
     {
         joue = true;
         bEnnemi = false;
-        nbCartes = 2;
-        argent = 3;
+        nbCartes = 2; //nb de cartes par mains
+        argent = 3; 
 
+        //Affiche la main de chaque joueur
         foreach (var carte in mainJoueur)
         {
             AfficherMain(carte);
         }
+
+        //Affiche la demande de niveau
+        niveau.gameObject.SetActive(true);
+
+        //N'affiche pas les calque de fin
         endGameCalque.gameObject.SetActive(false);
         endGameVictory.gameObject.SetActive(false);
         endGameDefeat.gameObject.SetActive(false);
         endGameDraw.gameObject.SetActive(false);
-        niveau.gameObject.SetActive(true);
+       
     }
 
     void Update()
     {
+        //MAJ nom de GomyCoins
         pieces.GetComponent<TMP_Text>().text = argent.ToString();
+        //Verifi si condition de fin
         EndGame();
     }
 
-    public void Rapide()
+    public void Rapide() //Partie rapide
     {
         nbCoins = 10;
         niveau.gameObject.SetActive(false);
     }
-    public void Standard()
+    public void Standard()//Partie Standard
     {
         nbCoins = 20;
         niveau.gameObject.SetActive(false);
     }
-    public void Long()
+    public void Long()//Partie Longue
     {
         nbCoins = 30;
         niveau.gameObject.SetActive(false);
     }
 
-    public void AfficherMain(GameObject carte)
+    public void AfficherMain(GameObject carte) //Affiche une nouvelle carte dans la main
     {
-        Vector3 vect = new Vector3(170.0f * k + 50.0f, -130.0f, 0.0f);
-        Instantiate(carte, vect, Quaternion.identity, content.transform);
+        Vector3 vect = new Vector3(170.0f * k + 50.0f, -130.0f, 0.0f); // position de la carte
+        Instantiate(carte, vect, Quaternion.identity, content.transform); //creation nouvelle carte
         k++;
     }
 
@@ -83,14 +98,14 @@ public class Player : MonoBehaviour
         updateScoreEnnemy.gameObject.SetActive(false);
     }
 
-    public void tourJoueur()
+    public void tourJoueur() //tour du joueur
     {
-        if (enJeu)
+        if (enJeu) // si pas fini
         {
-            scoreDe = de.GetComponent<Dice>().score;
+            scoreDe = de.GetComponent<Dice>().score; //recuperation score des des
             gainTotalMancheJoueur = 0;
             gainTotalMancheEnnemi = 0;
-            foreach (var carte in mainJoueur)
+            foreach (var carte in mainJoueur) //recheche dans les cartes du joueur si carte Bleue ou Verte
             {
                 Card card = carte.GetComponent<Card>();
                 string colorCarte = card.color;
@@ -102,17 +117,17 @@ public class Player : MonoBehaviour
                 }
             }
 
-            foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
+            foreach (var carte in ennemi.GetComponent<Player>().mainJoueur) //recheche dans les cartes de l'ordi si carte Bleue ou Rouge
             {
                 Card card = carte.GetComponent<Card>();
                 string colorCarte = card.color;
                 int carteGain = card.gain;
                 int deCarte = card.de;
-                if (colorCarte == "R" && deCarte == scoreDe)
+                if (colorCarte == "R" && deCarte == scoreDe) //Si carte rouge
                 {
-                    int ennemiArgent = ennemi.GetComponent<Player>().argent;
+                    int ennemiArgent = ennemi.GetComponent<Player>().argent; //recupere l'argent qu'a l'ordi
 
-                    if (ennemiArgent >= carteGain)
+                    if (argent >= carteGain)// le joueur a assez de piece pour payer l'ordi
                     {
                         gainCarte = carteGain;
                         argent -= gainCarte;
@@ -121,7 +136,7 @@ public class Player : MonoBehaviour
                         ennemi.GetComponent<Player>().argent += gainCarte;
                         updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
                     }
-                    else
+                    else // sinon il lui donne tous ce qu'il a
                     {
                         gainCarte = ennemiArgent;
                         argent -= gainCarte;
@@ -131,7 +146,7 @@ public class Player : MonoBehaviour
                         updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
                     }
                 }
-                else if (colorCarte == "B" && deCarte == scoreDe)
+                else if (colorCarte == "B" && deCarte == scoreDe) // si carte bleu gagne le gain
                 {
                     gainCarte = carteGain;
                     ennemi.GetComponent<Player>().argent += gainCarte;
@@ -159,17 +174,17 @@ public class Player : MonoBehaviour
                 updateScore.GetComponent<TMP_Text>().text = gainTotalMancheJoueur.ToString();
                 StartCoroutine("TempsAffichageJoueur");
             }
-            piles = true;
+            piles = true;//Active l'acces au piles
         }
     }
 
-    public void tourDeEnnemi()
+    public void tourDeEnnemi() //L'ordi lance les des
     {
-        if (enJeu)
+        if (enJeu) // si toujours en jeu
         {
             bEnnemi = true;
             bool de2 = false;
-            foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
+            foreach (var carte in ennemi.GetComponent<Player>().mainJoueur) //Si parmis les cartes il y en a qui on besoin de plus de 6 pour s'activer alors choix random entre 2 des ou 1 de
             {
                 if (carte.GetComponent<Card>().de > 6)
                 {
@@ -189,11 +204,11 @@ public class Player : MonoBehaviour
                 }
             }
 
-            if (!de2)
+            if (!de2)//lance 1 de
             {
                 de.GetComponent<Dice>().ThrowEnnemi();
             }
-            else
+            else //lance 2 des
             {
                 de.GetComponent<Dice>().Throw2Ennemi();
             }
@@ -201,16 +216,15 @@ public class Player : MonoBehaviour
     }
 
 
-    public void tourEnnemi()
+    public void tourEnnemi() // tour de l'ordi
     {
-        if (enJeu)
+        if (enJeu) //si toujours en jeu
         {
-            Debug.Log("tourEnnemi");
-            scoreDe = de.GetComponent<Dice>().score;
+            scoreDe = de.GetComponent<Dice>().score; //recuperation score du de
             gainTotalMancheJoueur = 0;
             gainTotalMancheEnnemi = 0;
 
-            foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
+            foreach (var carte in ennemi.GetComponent<Player>().mainJoueur) // recherche parmis la main de l'ordi si carte Bleu et verte 
             {
                 Card card = carte.GetComponent<Card>();
                 string colorCarte = card.color;
@@ -221,14 +235,14 @@ public class Player : MonoBehaviour
                     ennemi.GetComponent<Player>().argent += gainCarte;
                 }
             }
-            foreach (var carte in mainJoueur)
+            foreach (var carte in mainJoueur) // recherche par mis la main du joueur si carte Rouge ou Bleu
             {
                 Card card = carte.GetComponent<Card>();
                 string colorCarte = card.color;
                 int carteGain = card.gain;
-                if (colorCarte == "R" && card.de == scoreDe)
+                if (colorCarte == "R" && card.de == scoreDe) //si carte rouge 
                 {
-                    if (argent >= carteGain)
+                    if (ennemi.GetComponent<Player>().argent >= carteGain) //verifie si l'ordi a de quoi payer le joueur
                     {
                         gainCarte = carteGain;
                         argent += gainCarte;
@@ -237,7 +251,7 @@ public class Player : MonoBehaviour
                         ennemi.GetComponent<Player>().argent -= gainCarte;
                         updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
                     }
-                    else
+                    else //sinon lui donne tous ce qu'il a
                     {
                         gainCarte = argent;
                         argent += gainCarte;
@@ -250,7 +264,7 @@ public class Player : MonoBehaviour
                    
 
                 }
-                else if (colorCarte == "B" && card.de == scoreDe)
+                else if (colorCarte == "B" && card.de == scoreDe) // si carte bleu recupere gain de la carte
                 {
                     gainCarte = card.gain;
                     argent += gainCarte;
@@ -258,7 +272,8 @@ public class Player : MonoBehaviour
                     updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
                 }
             }
-            List<GameObject> pileValideEnnemi = new List<GameObject>();
+            //L'ordi pioche
+            List<GameObject> pileValideEnnemi = new List<GameObject>(); //Liste qui va contenir toute les carte que l'ordi peut acheter
             foreach (var piles in cartesPiles)
             {
                 if (ennemi.GetComponent<Player>().argent >= piles.GetComponent<Card>().prix && piles.GetComponent<Pile>().nbCartes > 0)
@@ -286,18 +301,18 @@ public class Player : MonoBehaviour
                 updateScore.GetComponent<TMP_Text>().text = gainTotalMancheJoueur.ToString();
                 StartCoroutine("TempsAffichageJoueur");
             }
+            //si le joueur a plus de 0 gomy coins il pioche une carte au hasard et la paye
             if (ennemi.GetComponent<Player>().argent > 0)
             {
-                Debug.Log("pilevalidennemi" + pileValideEnnemi.Count);
                 int nb = Random.Range(0, pileValideEnnemi.Count);
                 pileValideEnnemi[nb].GetComponent<Pile>().OnclickEnnemi();
             }
             de.GetComponent<Dice>().activeDes();
         }
     }
-    public void EndGame()
+    public void EndGame() //condition de fin du jeu
     {
-        if (ennemi.GetComponent<Player>().argent < nbCoins && argent >= nbCoins)
+        if (ennemi.GetComponent<Player>().argent < nbCoins && argent >= nbCoins) // le joueur gagne
         {
             endGameCalque.gameObject.SetActive(true);
             textEndGame.GetComponent<TMP_Text>().text = "Vous avez gagné car vous avez atteint les "+ nbCoins +" GomyCoins requis !";
@@ -307,7 +322,7 @@ public class Player : MonoBehaviour
             enJeu = false;
 
         }
-        else if (ennemi.GetComponent<Player>().argent >= nbCoins && argent < nbCoins)
+        else if (ennemi.GetComponent<Player>().argent >= nbCoins && argent < nbCoins) // si le joueur perd
         {
             endGameCalque.gameObject.SetActive(true);
             textEndGame.GetComponent<TMP_Text>().text = "Votre adversaire a atteint les " + nbCoins + " Gomycoins nécessaires avant vous, vous avez perdu.";
@@ -316,7 +331,7 @@ public class Player : MonoBehaviour
             de.GetComponent<Dice>().DesactiveDes();
             enJeu = false;
         }
-        else if (ennemi.GetComponent<Player>().argent >= nbCoins && argent >= nbCoins)
+        else if (ennemi.GetComponent<Player>().argent >= nbCoins && argent >= nbCoins)// si egalites
         {
             endGameCalque.gameObject.SetActive(true);
             textEndGame.GetComponent<TMP_Text>().text = "Vous avez tout les deux atteint les " + nbCoins + " Gomycoins nécessaires, c'est une égalité.";
@@ -325,5 +340,19 @@ public class Player : MonoBehaviour
             de.GetComponent<Dice>().DesactiveDes();
             enJeu = false;
         }
+
+       
+    }
+    public void Rejouer()
+    {
+        SceneManager.LoadScene("Main");
+    }
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
     }
 }

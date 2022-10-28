@@ -12,14 +12,5 @@ public class Card : MonoBehaviour
     public Sprite sprCarte;
     public GameObject Carte;
 
-    public override string ToString()
-    {
-        string toString = string.Format("[" + this.de + "] " + this.nom + ", prix : " + this.prix + ", gain : " + this.gain + "\n");
-        return toString;
-    }
 
-    public int effet()
-    {
-        return this.gain;
-    }
 }

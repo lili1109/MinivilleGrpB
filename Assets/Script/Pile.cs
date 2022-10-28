@@ -5,43 +5,35 @@ using UnityEngine.UI;
 
 public class Pile : MonoBehaviour
 {
-
+    [Header("Variable Piles")]
     public int nbCartes;
     public GameObject mainJoueur;
     int prix;
     public bool passer;
-    public Pile()
-    {
-        nbCartes = 6;       
-    }
 
     void Awake()
-    { if (passer == false)
+    { 
+        if (passer == false) // Affichages des cartes de la pioche
         {
             GetComponent<Image>().sprite = GetComponent<Card>().sprCarte;
             prix = GetComponent<Card>().prix;
         }
     }
 
-    public override string ToString()
-    {
-        string toString = string.Format("");
-        return toString;
-    }
-
     void Update()
     {
+        //Verifie si le joueur peux prendre une carte de la pile ou si il reste des cartes dans la pile
         if(nbCartes == 0 || prix > mainJoueur.GetComponent<Player>().argent || mainJoueur.GetComponent<Player>().piles ==false)
         {
-            GetComponent<Button>().interactable = false;
+            GetComponent<Button>().interactable = false; //desactivation du paquet 
         }
         else
         {
-            GetComponent<Button>().interactable = true;
+            GetComponent<Button>().interactable = true; //activation du paquet
         }
     }
 
-    public void Onclick()
+    public void Onclick() // si le joueur veux acheter un carte de la pile
     {
         mainJoueur.GetComponent<Player>().mainJoueur.Add(GetComponent<Card>().Carte);
         mainJoueur.GetComponent<Player>().AfficherMain(GetComponent<Card>().Carte);
@@ -52,7 +44,7 @@ public class Pile : MonoBehaviour
         mainJoueur.GetComponent<Player>().tourDeEnnemi();
 
     }
-    public void OnclickEnnemi()
+    public void OnclickEnnemi() // si l'ordi veux acheter un carte de la pile
     {
         mainJoueur.GetComponent<Player>().ennemi.GetComponent<Player>().mainJoueur.Add(GetComponent<Card>().Carte);
         mainJoueur.GetComponent<Player>().ennemi.GetComponent<Player>().AfficherMain(GetComponent<Card>().Carte);
@@ -63,7 +55,7 @@ public class Pile : MonoBehaviour
         mainJoueur.GetComponent<Player>().joue = true;
 
     }
-    public void Passer()
+    public void Passer() //Si le joueur veut rien acheter
     {
         mainJoueur.GetComponent<Player>().piles = false;
         mainJoueur.GetComponent<Player>().joue = false;
