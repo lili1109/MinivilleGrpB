@@ -110,4 +110,9 @@ public class Dice : MonoBehaviour
         btnDe1.GetComponent<Button>().interactable = true;
         btnDe2.GetComponent<Button>().interactable = true;
     }
+    public void DesactiveDes()
+    {
+        btnDe1.GetComponent<Button>().interactable = false;
+        btnDe2.GetComponent<Button>().interactable = false;
+    }
 }

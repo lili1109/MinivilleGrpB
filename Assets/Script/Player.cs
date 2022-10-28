@@ -8,9 +8,8 @@ public class Player : MonoBehaviour
 {
     public string nom;
     public int nbCartes, argent;
-    private int changementSolde;
     public bool joue, piles, bEnnemi;
-    [SerializeField] GameObject pieces, content, updateScore, updateScoreEnnemy;
+    [SerializeField] GameObject pieces, content, updateScore, updateScoreEnnemy, endGameVictory, endGameDefeat, endGameDraw, niveau;
     public GameObject de;
     public List<GameObject> mainJoueur;
     int k = 0;
@@ -18,6 +17,8 @@ public class Player : MonoBehaviour
     int gainCarte = 0;
     int gainTotalMancheJoueur = 0;
     int gainTotalMancheEnnemi = 0;
+    bool enJeu = true;
+    int nbCoins = 20;
     public GameObject ennemi;
     public List<GameObject> cartesPiles; 
     void Awake()
@@ -31,11 +32,32 @@ public class Player : MonoBehaviour
         {
             AfficherMain(carte);
         }
+        endGameVictory.gameObject.SetActive(false);
+        endGameDefeat.gameObject.SetActive(false);
+        endGameDraw.gameObject.SetActive(false);
+        niveau.gameObject.SetActive(true);
     }
 
     void Update()
     {
         pieces.GetComponent<TMP_Text>().text = argent.ToString();
+        EndGame();
+    }
+
+    public void Rapide()
+    {
+        nbCoins = 4;
+        niveau.gameObject.SetActive(false);
+    }
+    public void Standard()
+    {
+        nbCoins = 6;
+        niveau.gameObject.SetActive(false);
+    }
+    public void Long()
+    {
+        nbCoins = 8;
+        niveau.gameObject.SetActive(false);
     }
 
     public void AfficherMain(GameObject carte)
@@ -61,175 +83,207 @@ public class Player : MonoBehaviour
 
     public void tourJoueur()
     {
-        scoreDe = de.GetComponent<Dice>().score;
-        gainTotalMancheJoueur = 0;
-        gainTotalMancheEnnemi = 0;
-        foreach (var carte in mainJoueur)
+        if (enJeu)
         {
-            string colorCarte = carte.GetComponent<Card>().color;
-            if ((colorCarte == "B" || colorCarte == "V") && carte.GetComponent<Card>().de == scoreDe)
+            scoreDe = de.GetComponent<Dice>().score;
+            gainTotalMancheJoueur = 0;
+            gainTotalMancheEnnemi = 0;
+            foreach (var carte in mainJoueur)
             {
-                gainCarte = carte.GetComponent<Card>().gain;
-                argent += gainCarte;
-                gainTotalMancheJoueur += gainCarte;
+                string colorCarte = carte.GetComponent<Card>().color;
+                if ((colorCarte == "B" || colorCarte == "V") && carte.GetComponent<Card>().de == scoreDe)
+                {
+                    gainCarte = carte.GetComponent<Card>().gain;
+                    argent += gainCarte;
+                    gainTotalMancheJoueur += gainCarte;
+                }
             }
-        }
-        foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
-        {
-            string colorCarte = carte.GetComponent<Card>().color;
-            int carteGain = carte.GetComponent<Card>().gain;
-            int deCarte = carte.GetComponent<Card>().de;
-            if (colorCarte == "R" && deCarte == scoreDe)
+
+            foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
             {
-                gainCarte = carteGain;
-                argent -= gainCarte;
-                gainTotalMancheJoueur -= gainCarte;
-                gainTotalMancheEnnemi += gainCarte;
-                ennemi.GetComponent<Player>().argent += gainCarte;
-                updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                string colorCarte = carte.GetComponent<Card>().color;
+                int carteGain = carte.GetComponent<Card>().gain;
+                int deCarte = carte.GetComponent<Card>().de;
+                if (colorCarte == "R" && deCarte == scoreDe)
+                {
+                    gainCarte = carteGain;
+                    argent -= gainCarte;
+                    gainTotalMancheJoueur -= gainCarte;
+                    gainTotalMancheEnnemi += gainCarte;
+                    ennemi.GetComponent<Player>().argent += gainCarte;
+                    updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                }
+                else if (colorCarte == "B" && deCarte == scoreDe)
+                {
+                    gainCarte = carteGain;
+                    ennemi.GetComponent<Player>().argent += gainCarte;
+                    gainTotalMancheEnnemi += gainCarte;
+                    updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                }
             }
-            else if (colorCarte == "B" && deCarte == scoreDe)
+            if (gainTotalMancheEnnemi > 0)
             {
-                gainCarte = carteGain;
-                ennemi.GetComponent<Player>().argent += gainCarte;
-                gainTotalMancheEnnemi += gainCarte;
-                updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                updateScoreEnnemy.GetComponent<TMP_Text>().text = "+" + gainTotalMancheEnnemi.ToString();
+                StartCoroutine("TempsAffichageEnnemi");
             }
+            else if (gainTotalMancheEnnemi < 0)
+            {
+                updateScoreEnnemy.GetComponent<TMP_Text>().text = gainTotalMancheEnnemi.ToString();
+                StartCoroutine("TempsAffichageEnnemi");
+            }
+            if (gainTotalMancheJoueur > 0)
+            {
+                updateScore.GetComponent<TMP_Text>().text = "+" + gainTotalMancheJoueur.ToString();
+                StartCoroutine("TempsAffichageJoueur");
+            }
+            else if (gainTotalMancheJoueur < 0)
+            {
+                updateScore.GetComponent<TMP_Text>().text = gainTotalMancheJoueur.ToString();
+                StartCoroutine("TempsAffichageJoueur");
+            }
+            piles = true;
         }
-        if (gainTotalMancheEnnemi > 0)
-        {
-            updateScoreEnnemy.GetComponent<TMP_Text>().text = "+" + gainTotalMancheEnnemi.ToString();
-            StartCoroutine("TempsAffichageEnnemi");
-        }
-        else if (gainTotalMancheEnnemi < 0)
-        {
-            updateScoreEnnemy.GetComponent<TMP_Text>().text = gainTotalMancheEnnemi.ToString();
-            StartCoroutine("TempsAffichageEnnemi");
-        }
-        if (gainTotalMancheJoueur > 0)
-        {
-            updateScore.GetComponent<TMP_Text>().text = "+" + gainTotalMancheJoueur.ToString();
-            StartCoroutine("TempsAffichageJoueur");
-        }
-        else if (gainTotalMancheJoueur < 0)
-        {
-            updateScore.GetComponent<TMP_Text>().text = gainTotalMancheJoueur.ToString();
-            StartCoroutine("TempsAffichageJoueur");
-        }
-        piles = true;
     }
 
     public void tourDeEnnemi()
     {
-        bEnnemi = true;
-        bool de2 = false;
-        foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
+        if (enJeu)
         {
-            if (carte.GetComponent<Card>().de > 6)
+            bEnnemi = true;
+            bool de2 = false;
+            foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
             {
-                int n = Random.Range(0, 2);
-                if (n == 0)
+                if (carte.GetComponent<Card>().de > 6)
                 {
-                    de2 = true;
+                    int n = Random.Range(0, 2);
+                    if (n == 0)
+                    {
+                        de2 = true;
+                    }
+                    else
+                    {
+                        de2 = false;
+                    }
                 }
                 else
                 {
                     de2 = false;
                 }
             }
+
+            if (!de2)
+            {
+                de.GetComponent<Dice>().ThrowEnnemi();
+            }
             else
             {
-                de2 = false;
+                de.GetComponent<Dice>().Throw2Ennemi();
             }
         }
-
-        if (!de2)
-        {
-            de.GetComponent<Dice>().ThrowEnnemi();
-        }
-        else
-        {
-            de.GetComponent<Dice>().Throw2Ennemi();
-        }
-
     }
 
 
     public void tourEnnemi()
     {
-        Debug.Log("tourEnnemi");
-        scoreDe = de.GetComponent<Dice>().score;
-        gainTotalMancheJoueur = 0;
-        gainTotalMancheEnnemi = 0;
+        if (enJeu)
+        {
+            Debug.Log("tourEnnemi");
+            scoreDe = de.GetComponent<Dice>().score;
+            gainTotalMancheJoueur = 0;
+            gainTotalMancheEnnemi = 0;
 
-        foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
-        {
-            string colorCarte = carte.GetComponent<Card>().color;
-            if ((colorCarte == "B" || colorCarte == "V") && carte.GetComponent<Card>().de == scoreDe)
+            foreach (var carte in ennemi.GetComponent<Player>().mainJoueur)
             {
-                gainCarte = carte.GetComponent<Card>().gain;
-                gainTotalMancheEnnemi += gainCarte;
-                ennemi.GetComponent<Player>().argent += gainCarte;
+                Card card = carte.GetComponent<Card>();
+
+                string colorCarte = card.color;
+                if ((colorCarte == "B" || colorCarte == "V") && card.de == scoreDe)
+                {
+                    gainCarte = card.gain;
+                    gainTotalMancheEnnemi += gainCarte;
+                    ennemi.GetComponent<Player>().argent += gainCarte;
+                }
             }
-        }
-        foreach (var carte in mainJoueur)
-        {
-            string colorCarte = carte.GetComponent<Card>().color;
-            if (colorCarte == "R" && carte.GetComponent<Card>().de == scoreDe)
+            foreach (var carte in mainJoueur)
             {
-                gainCarte = carte.GetComponent<Card>().gain;
-                argent += gainCarte;
-                gainTotalMancheJoueur += gainCarte;
-                gainTotalMancheEnnemi -= gainCarte;
-                ennemi.GetComponent<Player>().argent -= gainCarte;
-                updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
-               
+                string colorCarte = carte.GetComponent<Card>().color;
+                if (colorCarte == "R" && carte.GetComponent<Card>().de == scoreDe)
+                {
+                    gainCarte = carte.GetComponent<Card>().gain;
+                    argent += gainCarte;
+                    gainTotalMancheJoueur += gainCarte;
+                    gainTotalMancheEnnemi -= gainCarte;
+                    ennemi.GetComponent<Player>().argent -= gainCarte;
+                    updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+
+                }
+                else if (colorCarte == "B" && carte.GetComponent<Card>().de == scoreDe)
+                {
+                    gainCarte = carte.GetComponent<Card>().gain;
+                    argent += gainCarte;
+                    gainTotalMancheJoueur += gainCarte;
+                    updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                }
             }
-            else if (colorCarte == "B" && carte.GetComponent<Card>().de == scoreDe)
+            List<GameObject> pileValideEnnemi = new List<GameObject>();
+            foreach (var piles in cartesPiles)
             {
-                gainCarte = carte.GetComponent<Card>().gain;
-                argent += gainCarte;
-                gainTotalMancheJoueur += gainCarte;
-                updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                if (ennemi.GetComponent<Player>().argent >= piles.GetComponent<Card>().prix && piles.GetComponent<Pile>().nbCartes > 0)
+                {
+                    pileValideEnnemi.Add(piles);
+                }
             }
-        }
-        List<GameObject> pileValideEnnemi = new List<GameObject>();
-        foreach (var piles in cartesPiles)
-        {
-            if (ennemi.GetComponent<Player>().argent >= piles.GetComponent<Card>().prix && piles.GetComponent<Pile>().nbCartes > 0)
+            if (gainTotalMancheEnnemi > 0)
             {
-                pileValideEnnemi.Add(piles);
+                updateScoreEnnemy.GetComponent<TMP_Text>().text = "+" + gainTotalMancheEnnemi.ToString();
+                StartCoroutine("TempsAffichageEnnemi");
             }
+            else if (gainTotalMancheEnnemi < 0)
+            {
+                updateScoreEnnemy.GetComponent<TMP_Text>().text = gainTotalMancheEnnemi.ToString();
+                StartCoroutine("TempsAffichageEnnemi");
+            }
+            if (gainTotalMancheJoueur > 0)
+            {
+                updateScore.GetComponent<TMP_Text>().text = "+" + gainTotalMancheJoueur.ToString();
+                StartCoroutine("TempsAffichageJoueur");
+            }
+            else if (gainTotalMancheJoueur < 0)
+            {
+                updateScore.GetComponent<TMP_Text>().text = gainTotalMancheJoueur.ToString();
+                StartCoroutine("TempsAffichageJoueur");
+            }
+            if (ennemi.GetComponent<Player>().argent > 0)
+            {
+                Debug.Log("pilevalidennemi" + pileValideEnnemi.Count);
+                int nb = Random.Range(0, pileValideEnnemi.Count);
+                pileValideEnnemi[nb].GetComponent<Pile>().OnclickEnnemi();
+            }
+            de.GetComponent<Dice>().activeDes();
         }
-        if (gainTotalMancheEnnemi > 0)
-        {
-            updateScoreEnnemy.GetComponent<TMP_Text>().text = "+" + gainTotalMancheEnnemi.ToString();
-            StartCoroutine("TempsAffichageEnnemi");
-        }
-        else if (gainTotalMancheEnnemi < 0)
-        {
-            updateScoreEnnemy.GetComponent<TMP_Text>().text = gainTotalMancheEnnemi.ToString();
-            StartCoroutine("TempsAffichageEnnemi");
-        }
-        if (gainTotalMancheJoueur > 0)
-        {
-            updateScore.GetComponent<TMP_Text>().text = "+" + gainTotalMancheJoueur.ToString();
-            StartCoroutine("TempsAffichageJoueur");
-        }
-        else if (gainTotalMancheJoueur < 0)
-        {
-            updateScore.GetComponent<TMP_Text>().text = gainTotalMancheJoueur.ToString();
-            StartCoroutine("TempsAffichageJoueur");
-        }
-        if (ennemi.GetComponent<Player>().argent > 0)
-        {
-            Debug.Log("pilevalidennemi" + pileValideEnnemi.Count);
-            int nb = Random.Range(0, pileValideEnnemi.Count);
-            pileValideEnnemi[nb].GetComponent<Pile>().OnclickEnnemi();
-        }
-        de.GetComponent<Dice>().activeDes();
     }
-    
+    public void EndGame()
+    {
+        if (ennemi.GetComponent<Player>().argent < nbCoins && argent >= nbCoins)
+        {
+            endGameVictory.gameObject.SetActive(true);
+            piles = false;
+            de.GetComponent<Dice>().DesactiveDes();
+            enJeu = false;
+        }
+        else if (ennemi.GetComponent<Player>().argent >= nbCoins && argent < nbCoins)
+        {
+            endGameDefeat.gameObject.SetActive(true);
+            piles = false;
+            de.GetComponent<Dice>().DesactiveDes();
+            enJeu = false;
+        }
+        else if (ennemi.GetComponent<Player>().argent >= nbCoins && argent >= nbCoins)
+        {
+            endGameDraw.gameObject.SetActive(true);
+            piles = false;
+            de.GetComponent<Dice>().DesactiveDes();
+            enJeu = false;
+        }
+    }
 }
-   
-    
