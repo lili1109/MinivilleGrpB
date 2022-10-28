@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public string nom;
     public int nbCartes, argent;
     public bool joue, piles, bEnnemi;
-    [SerializeField] GameObject pieces, content, updateScore, updateScoreEnnemy, endGameVictory, endGameDefeat, endGameDraw, niveau;
+    [SerializeField] GameObject pieces, content, updateScore, updateScoreEnnemy, endGameVictory, endGameDefeat, endGameDraw,endGameCalque, niveau,textEndGame;
     public GameObject de;
     public List<GameObject> mainJoueur;
     int k = 0;
@@ -18,9 +18,10 @@ public class Player : MonoBehaviour
     int gainTotalMancheJoueur = 0;
     int gainTotalMancheEnnemi = 0;
     bool enJeu = true;
-    int nbCoins = 20;
+    public int nbCoins = 20;
     public GameObject ennemi;
     public List<GameObject> cartesPiles; 
+
     void Awake()
     {
         joue = true;
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
         {
             AfficherMain(carte);
         }
+        endGameCalque.gameObject.SetActive(false);
         endGameVictory.gameObject.SetActive(false);
         endGameDefeat.gameObject.SetActive(false);
         endGameDraw.gameObject.SetActive(false);
@@ -108,12 +110,26 @@ public class Player : MonoBehaviour
                 int deCarte = card.de;
                 if (colorCarte == "R" && deCarte == scoreDe)
                 {
-                    gainCarte = carteGain;
-                    argent -= gainCarte;
-                    gainTotalMancheJoueur -= gainCarte;
-                    gainTotalMancheEnnemi += gainCarte;
-                    ennemi.GetComponent<Player>().argent += gainCarte;
-                    updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                    int ennemiArgent = ennemi.GetComponent<Player>().argent;
+
+                    if (ennemiArgent >= carteGain)
+                    {
+                        gainCarte = carteGain;
+                        argent -= gainCarte;
+                        gainTotalMancheJoueur -= gainCarte;
+                        gainTotalMancheEnnemi += gainCarte;
+                        ennemi.GetComponent<Player>().argent += gainCarte;
+                        updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                    }
+                    else
+                    {
+                        gainCarte = ennemiArgent;
+                        argent -= gainCarte;
+                        gainTotalMancheJoueur -= gainCarte;
+                        gainTotalMancheEnnemi += gainCarte;
+                        ennemi.GetComponent<Player>().argent += gainCarte;
+                        updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                    }
                 }
                 else if (colorCarte == "B" && deCarte == scoreDe)
                 {
@@ -209,14 +225,29 @@ public class Player : MonoBehaviour
             {
                 Card card = carte.GetComponent<Card>();
                 string colorCarte = card.color;
+                int carteGain = card.gain;
                 if (colorCarte == "R" && card.de == scoreDe)
                 {
-                    gainCarte = card.gain;
-                    argent += gainCarte;
-                    gainTotalMancheJoueur += gainCarte;
-                    gainTotalMancheEnnemi -= gainCarte;
-                    ennemi.GetComponent<Player>().argent -= gainCarte;
-                    updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                    if (argent >= carteGain)
+                    {
+                        gainCarte = carteGain;
+                        argent += gainCarte;
+                        gainTotalMancheJoueur += gainCarte;
+                        gainTotalMancheEnnemi -= gainCarte;
+                        ennemi.GetComponent<Player>().argent -= gainCarte;
+                        updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                    }
+                    else
+                    {
+                        gainCarte = argent;
+                        argent += gainCarte;
+                        gainTotalMancheJoueur += gainCarte;
+                        gainTotalMancheEnnemi -= gainCarte;
+                        ennemi.GetComponent<Player>().argent -= gainCarte;
+                        updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                    }
+
+                   
 
                 }
                 else if (colorCarte == "B" && card.de == scoreDe)
@@ -268,13 +299,18 @@ public class Player : MonoBehaviour
     {
         if (ennemi.GetComponent<Player>().argent < nbCoins && argent >= nbCoins)
         {
+            endGameCalque.gameObject.SetActive(true);
+            textEndGame.GetComponent<TMP_Text>().text = "Vous avez gagné car vous avez atteint les "+ nbCoins +" GomyCoins requis !";
             endGameVictory.gameObject.SetActive(true);
             piles = false;
             de.GetComponent<Dice>().DesactiveDes();
             enJeu = false;
+
         }
         else if (ennemi.GetComponent<Player>().argent >= nbCoins && argent < nbCoins)
         {
+            endGameCalque.gameObject.SetActive(true);
+            textEndGame.GetComponent<TMP_Text>().text = "Votre adversaire a atteint les " + nbCoins + " Gomycoins nécessaires avant vous, vous avez perdu.";
             endGameDefeat.gameObject.SetActive(true);
             piles = false;
             de.GetComponent<Dice>().DesactiveDes();
@@ -282,6 +318,8 @@ public class Player : MonoBehaviour
         }
         else if (ennemi.GetComponent<Player>().argent >= nbCoins && argent >= nbCoins)
         {
+            endGameCalque.gameObject.SetActive(true);
+            textEndGame.GetComponent<TMP_Text>().text = "Vous avez tout les deux atteint les " + nbCoins + " Gomycoins nécessaires, c'est une égalité.";
             endGameDraw.gameObject.SetActive(true);
             piles = false;
             de.GetComponent<Dice>().DesactiveDes();
