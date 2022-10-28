@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
 
     void Start ()
     {
-        Play("BarAmbience");
+        Play("Theme_accordeon");
     }
 
     public void Play(string name)
@@ -35,5 +35,18 @@ public class AudioManager : MonoBehaviour
         }                      
         // Code for playing the sound to put in scripts //
         // FindObjectOfType<AudioManager>().Play("SoundToPlay");
+    }
+
+    public void OneDiceSound()
+    {
+        Play("1diceroll");
+    }
+    public void TwoDiceSound()
+    {
+        Play("2diceroll");
+    }
+    public void GomyCoinSound()
+    {
+        Play("getcoinsound");
     }
 }

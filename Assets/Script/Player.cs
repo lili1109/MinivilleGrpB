@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [Header("Variable Player")]
+    public AudioManager audioManager;
     public string nom;
     public int nbCartes, argent;
     public bool joue, piles, bEnnemi;
@@ -135,6 +136,8 @@ public class Player : MonoBehaviour
                         gainTotalMancheEnnemi += gainCarte;
                         ennemi.GetComponent<Player>().argent += gainCarte;
                         updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                        // coin sound
+                        audioManager.GomyCoinSound();
                     }
                     else // sinon il lui donne tous ce qu'il a
                     {
@@ -144,6 +147,8 @@ public class Player : MonoBehaviour
                         gainTotalMancheEnnemi += gainCarte;
                         ennemi.GetComponent<Player>().argent += gainCarte;
                         updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                        // coin sound
+                        audioManager.GomyCoinSound();
                     }
                 }
                 else if (colorCarte == "B" && deCarte == scoreDe) // si carte bleu gagne le gain
@@ -152,27 +157,37 @@ public class Player : MonoBehaviour
                     ennemi.GetComponent<Player>().argent += gainCarte;
                     gainTotalMancheEnnemi += gainCarte;
                     updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                    // coin sound
+                    audioManager.GomyCoinSound();
                 }
             }
             if (gainTotalMancheEnnemi > 0)
             {
                 updateScoreEnnemy.GetComponent<TMP_Text>().text = "+" + gainTotalMancheEnnemi.ToString();
                 StartCoroutine("TempsAffichageEnnemi");
+                // coin sound
+                audioManager.GomyCoinSound();
             }
             else if (gainTotalMancheEnnemi < 0)
             {
                 updateScoreEnnemy.GetComponent<TMP_Text>().text = gainTotalMancheEnnemi.ToString();
                 StartCoroutine("TempsAffichageEnnemi");
+                // coin sound
+                audioManager.GomyCoinSound();
             }
             if (gainTotalMancheJoueur > 0)
             {
                 updateScore.GetComponent<TMP_Text>().text = "+" + gainTotalMancheJoueur.ToString();
                 StartCoroutine("TempsAffichageJoueur");
+                // coin sound
+                audioManager.GomyCoinSound();
             }
             else if (gainTotalMancheJoueur < 0)
             {
                 updateScore.GetComponent<TMP_Text>().text = gainTotalMancheJoueur.ToString();
                 StartCoroutine("TempsAffichageJoueur");
+                // coin sound
+                audioManager.GomyCoinSound();
             }
             piles = true;//Active l'acces au piles
         }
@@ -250,6 +265,8 @@ public class Player : MonoBehaviour
                         gainTotalMancheEnnemi -= gainCarte;
                         ennemi.GetComponent<Player>().argent -= gainCarte;
                         updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                        // coin sound
+                        audioManager.GomyCoinSound();
                     }
                     else //sinon lui donne tous ce qu'il a
                     {
@@ -259,6 +276,8 @@ public class Player : MonoBehaviour
                         gainTotalMancheEnnemi -= gainCarte;
                         ennemi.GetComponent<Player>().argent -= gainCarte;
                         updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                        // coin sound
+                        audioManager.GomyCoinSound();
                     }
 
                    
@@ -270,6 +289,8 @@ public class Player : MonoBehaviour
                     argent += gainCarte;
                     gainTotalMancheJoueur += gainCarte;
                     updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                    // coin sound
+                    audioManager.GomyCoinSound();
                 }
             }
             //L'ordi pioche
@@ -285,21 +306,29 @@ public class Player : MonoBehaviour
             {
                 updateScoreEnnemy.GetComponent<TMP_Text>().text = "+" + gainTotalMancheEnnemi.ToString();
                 StartCoroutine("TempsAffichageEnnemi");
+                // coin sound
+                audioManager.GomyCoinSound();
             }
             else if (gainTotalMancheEnnemi < 0)
             {
                 updateScoreEnnemy.GetComponent<TMP_Text>().text = gainTotalMancheEnnemi.ToString();
                 StartCoroutine("TempsAffichageEnnemi");
+                // coin sound
+                audioManager.GomyCoinSound();
             }
             if (gainTotalMancheJoueur > 0)
             {
                 updateScore.GetComponent<TMP_Text>().text = "+" + gainTotalMancheJoueur.ToString();
                 StartCoroutine("TempsAffichageJoueur");
+                // coin sound
+                audioManager.GomyCoinSound();
             }
             else if (gainTotalMancheJoueur < 0)
             {
                 updateScore.GetComponent<TMP_Text>().text = gainTotalMancheJoueur.ToString();
                 StartCoroutine("TempsAffichageJoueur");
+                // coin sound
+                audioManager.GomyCoinSound();
             }
             //si le joueur a plus de 0 gomy coins il pioche une carte au hasard et la paye
             if (ennemi.GetComponent<Player>().argent > 0)
@@ -349,10 +378,10 @@ public class Player : MonoBehaviour
     }
     public void Quit()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                    Application.Quit();
+        #endif
     }
 }

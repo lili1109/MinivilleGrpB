@@ -2284,6 +2284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cad4da9779f2ba4e8b3ef03c8e9fc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 830386678}
   nom: J2
   nbCartes: 2
   argent: 3
@@ -3638,11 +3639,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: BarAmbience
+  - name: Theme_accordeon
     clip: {fileID: 8300000, guid: 24107be5e062fd94fa93cca8d98a8135, type: 3}
-    volume: 0.265
+    volume: 0.12
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: 1diceroll
+    clip: {fileID: 8300000, guid: 02c3376505bad6f478cc6b67d00d5d6b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 2diceroll
+    clip: {fileID: 8300000, guid: 3a57745a8af8432428ba4acd16ba8d98, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: getcoinsound
+    clip: {fileID: 8300000, guid: 75f7cb9457c573f45b50c93516c67ac1, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &830386679
 Transform:
@@ -6246,6 +6265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cad4da9779f2ba4e8b3ef03c8e9fc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 830386678}
   nom: J1
   nbCartes: 0
   argent: 0
@@ -6711,6 +6731,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1138832943}
         m_TargetAssemblyTypeName: Dice, Assembly-CSharp
         m_MethodName: Throw2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 830386678}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: TwoDiceSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7206,6 +7238,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1138832943}
         m_TargetAssemblyTypeName: Dice, Assembly-CSharp
         m_MethodName: Throw
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 830386678}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: OneDiceSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
