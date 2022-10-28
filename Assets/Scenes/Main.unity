@@ -1195,7 +1195,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 318186748}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1443508335}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Long
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &318186748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2401,6 +2413,7 @@ MonoBehaviour:
   endGameVictory: {fileID: 460684645}
   endGameDefeat: {fileID: 460684645}
   endGameDraw: {fileID: 460684645}
+  niveau: {fileID: 460684645}
   de: {fileID: 1138832941}
   mainJoueur:
   - {fileID: 4644000910650296905, guid: ac779cd250812784f8f515f0810f4c3b, type: 3}
@@ -4357,7 +4370,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 954375986}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1443508335}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Rapide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &954375986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5587,7 +5612,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1176964762}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1443508335}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Standard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1176964762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6839,6 +6876,7 @@ MonoBehaviour:
   endGameVictory: {fileID: 1764802157}
   endGameDefeat: {fileID: 1358928377}
   endGameDraw: {fileID: 1462757295}
+  niveau: {fileID: 1714717495}
   de: {fileID: 1138832941}
   mainJoueur:
   - {fileID: 4644000910650296905, guid: ac779cd250812784f8f515f0810f4c3b, type: 3}
