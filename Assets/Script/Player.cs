@@ -130,18 +130,17 @@ public class Player : MonoBehaviour
 
                     if (argent >= carteGain)// le joueur a assez de piece pour payer l'ordi
                     {
-                        gainCarte = carteGain;
-                        argent -= gainCarte;
-                        gainTotalMancheJoueur -= gainCarte;
-                        gainTotalMancheEnnemi += gainCarte;
-                        ennemi.GetComponent<Player>().argent += gainCarte;
-                        updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                        argent -= carteGain;
+                        gainTotalMancheJoueur -= carteGain;
+                        gainTotalMancheEnnemi += carteGain;
+                        ennemi.GetComponent<Player>().argent += carteGain;
+                        updateScore.GetComponent<TMP_Text>().text = carteGain.ToString();
                         // coin sound
                         audioManager.GomyCoinSound();
                     }
                     else // sinon il lui donne tous ce qu'il a
                     {
-                        gainCarte = ennemiArgent;
+                        gainCarte = argent;
                         argent -= gainCarte;
                         gainTotalMancheJoueur -= gainCarte;
                         gainTotalMancheEnnemi += gainCarte;
@@ -194,7 +193,7 @@ public class Player : MonoBehaviour
     }
 
     public void tourDeEnnemi() //L'ordi lance les des
-    {
+    {  
         if (enJeu) // si toujours en jeu
         {
             bEnnemi = true;
@@ -259,18 +258,17 @@ public class Player : MonoBehaviour
                 {
                     if (ennemi.GetComponent<Player>().argent >= carteGain) //verifie si l'ordi a de quoi payer le joueur
                     {
-                        gainCarte = carteGain;
-                        argent += gainCarte;
-                        gainTotalMancheJoueur += gainCarte;
-                        gainTotalMancheEnnemi -= gainCarte;
-                        ennemi.GetComponent<Player>().argent -= gainCarte;
-                        updateScore.GetComponent<TMP_Text>().text = gainCarte.ToString();
+                        argent += carteGain;
+                        gainTotalMancheJoueur += carteGain;
+                        gainTotalMancheEnnemi -= carteGain;
+                        ennemi.GetComponent<Player>().argent -= carteGain;
+                        updateScore.GetComponent<TMP_Text>().text = carteGain.ToString();
                         // coin sound
                         audioManager.GomyCoinSound();
                     }
                     else //sinon lui donne tous ce qu'il a
                     {
-                        gainCarte = argent;
+                        gainCarte = ennemi.GetComponent<Player>().argent;
                         argent += gainCarte;
                         gainTotalMancheJoueur += gainCarte;
                         gainTotalMancheEnnemi -= gainCarte;
