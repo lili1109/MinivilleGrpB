@@ -339,7 +339,7 @@ RectTransform:
   - {fileID: 714726096}
   - {fileID: 1888539283}
   m_Father: {fileID: 1687405858}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -494,7 +494,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &194262805
 MonoBehaviour:
@@ -1196,8 +1198,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1443508335}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1417383402}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Long
         m_Mode: 1
         m_Arguments:
@@ -1529,7 +1531,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &350963193
 MonoBehaviour:
@@ -1698,7 +1702,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &376567700
 MonoBehaviour:
@@ -2249,7 +2255,7 @@ GameObject:
   - component: {fileID: 552947600}
   - component: {fileID: 552947601}
   m_Layer: 0
-  m_Name: MainJ2
+  m_Name: J2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2270,7 +2276,7 @@ Transform:
   - {fileID: 645877756}
   - {fileID: 1906295081}
   m_Father: {fileID: 1687405858}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &552947601
 MonoBehaviour:
@@ -2284,46 +2290,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cad4da9779f2ba4e8b3ef03c8e9fc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 830386678}
-  nom: J2
   nbCartes: 2
   argent: 3
-  joue: 0
-  piles: 0
-  bEnnemi: 0
-  nbCoins: 20
-  de: {fileID: 1138832941}
-  ennemi: {fileID: 1443508333}
   pieces: {fileID: 754771164}
   content: {fileID: 2006253345}
-  updateScore: {fileID: 746960328}
-  updateScoreEnnemy: {fileID: 763745665}
-  endGameVictory: {fileID: 460684645}
-  endGameDefeat: {fileID: 460684645}
-  endGameDraw: {fileID: 460684645}
-  endGameCalque: {fileID: 460684645}
-  niveau: {fileID: 460684645}
-  textEndGame: {fileID: 460684645}
   mainJoueur:
   - {fileID: 4644000910650296905, guid: ac779cd250812784f8f515f0810f4c3b, type: 3}
   - {fileID: 2583360165002993561, guid: cc805f2f6ff549b4a89f4bfb8304b3d1, type: 3}
-  cartesPiles:
-  - {fileID: 1795881890}
-  - {fileID: 565069525}
-  - {fileID: 1325235715}
-  - {fileID: 1470705407}
-  - {fileID: 350963187}
-  - {fileID: 1314139396}
-  - {fileID: 376567694}
-  - {fileID: 1384259705}
-  - {fileID: 2021940265}
-  - {fileID: 1771449697}
-  - {fileID: 1822757469}
-  - {fileID: 194262799}
-  - {fileID: 1866454917}
-  - {fileID: 1041724476}
-  - {fileID: 1153724994}
-  - {fileID: 714726095}
 --- !u!1 &565069525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,7 +2445,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 4
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &565069531
 MonoBehaviour:
@@ -2980,7 +2955,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &714726101
 MonoBehaviour:
@@ -3216,7 +3193,7 @@ GameObject:
   - component: {fileID: 746960331}
   - component: {fileID: 746960330}
   m_Layer: 5
-  m_Name: ScoreIA
+  m_Name: ScoreJ2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3235,7 +3212,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1687405858}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3486,7 +3463,7 @@ GameObject:
   - component: {fileID: 763745668}
   - component: {fileID: 763745667}
   m_Layer: 5
-  m_Name: ScoreJoueur
+  m_Name: ScoreJ1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3505,7 +3482,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1687405858}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3799,8 +3776,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1443508335}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1417383402}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Rapide
         m_Mode: 1
         m_Arguments:
@@ -4498,7 +4475,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &1041724482
 MonoBehaviour:
@@ -4640,8 +4619,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1443508335}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1417383402}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Rejouer
         m_Mode: 1
         m_Arguments:
@@ -4726,7 +4705,7 @@ RectTransform:
   - {fileID: 1764777502}
   - {fileID: 1614161912}
   m_Father: {fileID: 1687405858}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4758,7 +4737,7 @@ MonoBehaviour:
   scoreTotal: {fileID: 2029815995}
   btnDe1: {fileID: 1764777501}
   btnDe2: {fileID: 1614161911}
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
 --- !u!1 &1153724994
 GameObject:
   m_ObjectHideFlags: 0
@@ -4907,7 +4886,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &1153725000
 MonoBehaviour:
@@ -4966,7 +4947,7 @@ RectTransform:
   - {fileID: 1558149247}
   - {fileID: 925547763}
   m_Father: {fileID: 1687405858}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5095,8 +5076,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1443508335}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1417383402}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Standard
         m_Mode: 1
         m_Arguments:
@@ -5581,7 +5562,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &1314139402
 MonoBehaviour:
@@ -5750,7 +5733,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &1325235721
 MonoBehaviour:
@@ -5919,7 +5904,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &1384259711
 MonoBehaviour:
@@ -6067,6 +6054,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390443142}
   m_CullTransparentMesh: 1
+--- !u!1 &1417383400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417383401}
+  - component: {fileID: 1417383402}
+  m_Layer: 5
+  m_Name: Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1417383401
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417383400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1687405858}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1417383402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417383400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7968bfe51a1ad4498389f69e89816bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
+  mainJoueur1: []
+  mainJoueur2: []
+  j1: 0
+  j2: 0
+  choixNiveau: {fileID: 1714717495}
+  updateScoreJ1: {fileID: 763745665}
+  updateScoreJ2: {fileID: 746960328}
+  textEndGame: {fileID: 426637623}
+  endGameVictory: {fileID: 244835496}
+  endGameDefeat: {fileID: 613972748}
+  endGameDraw: {fileID: 737930515}
+  endGameCalque: {fileID: 1160561379}
+  piles: 0
+  de: {fileID: 1138832941}
+  cartesPiles:
+  - {fileID: 1795881890}
+  - {fileID: 565069525}
+  - {fileID: 1325235715}
+  - {fileID: 1470705407}
+  - {fileID: 350963187}
+  - {fileID: 1314139396}
+  - {fileID: 376567694}
+  - {fileID: 1384259705}
+  - {fileID: 2021940265}
+  - {fileID: 1771449697}
+  - {fileID: 1822757469}
+  - {fileID: 194262799}
+  - {fileID: 1866454917}
+  - {fileID: 1041724476}
+  - {fileID: 1153724994}
+  - {fileID: 714726095}
+  audioManager: {fileID: 830386678}
 --- !u!1 &1422219624
 GameObject:
   m_ObjectHideFlags: 0
@@ -6230,7 +6300,7 @@ GameObject:
   - component: {fileID: 1443508334}
   - component: {fileID: 1443508335}
   m_Layer: 0
-  m_Name: MainJ1
+  m_Name: J1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6251,7 +6321,7 @@ Transform:
   - {fileID: 1007692980}
   - {fileID: 1888724743}
   m_Father: {fileID: 1687405858}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1443508335
 MonoBehaviour:
@@ -6265,46 +6335,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cad4da9779f2ba4e8b3ef03c8e9fc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 830386678}
-  nom: J1
   nbCartes: 0
   argent: 0
-  joue: 0
-  piles: 0
-  bEnnemi: 0
-  nbCoins: 20
-  de: {fileID: 1138832941}
-  ennemi: {fileID: 552947599}
   pieces: {fileID: 1000270581}
   content: {fileID: 1972845453}
-  updateScore: {fileID: 763745665}
-  updateScoreEnnemy: {fileID: 746960328}
-  endGameVictory: {fileID: 244835496}
-  endGameDefeat: {fileID: 613972748}
-  endGameDraw: {fileID: 737930515}
-  endGameCalque: {fileID: 1160561379}
-  niveau: {fileID: 1714717495}
-  textEndGame: {fileID: 426637623}
   mainJoueur:
   - {fileID: 4644000910650296905, guid: ac779cd250812784f8f515f0810f4c3b, type: 3}
   - {fileID: 2583360165002993561, guid: cc805f2f6ff549b4a89f4bfb8304b3d1, type: 3}
-  cartesPiles:
-  - {fileID: 1795881890}
-  - {fileID: 565069525}
-  - {fileID: 1325235715}
-  - {fileID: 1470705407}
-  - {fileID: 350963187}
-  - {fileID: 1314139396}
-  - {fileID: 376567694}
-  - {fileID: 1384259705}
-  - {fileID: 2021940265}
-  - {fileID: 1771449697}
-  - {fileID: 1822757469}
-  - {fileID: 194262799}
-  - {fileID: 1866454917}
-  - {fileID: 1041724476}
-  - {fileID: 1153724994}
-  - {fileID: 714726095}
 --- !u!1 &1451530267
 GameObject:
   m_ObjectHideFlags: 0
@@ -6490,7 +6527,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &1470705413
 MonoBehaviour:
@@ -6595,8 +6634,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1443508335}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 1417383402}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -6882,6 +6921,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1417383401}
   - {fileID: 2005001706}
   - {fileID: 77732702}
   - {fileID: 1443508334}
@@ -7070,7 +7110,7 @@ RectTransform:
   - {fileID: 1176964760}
   - {fileID: 318186746}
   m_Father: {fileID: 1687405858}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7445,7 +7485,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &1771449703
 MonoBehaviour:
@@ -7614,7 +7656,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 4
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &1795881896
 MonoBehaviour:
@@ -7783,7 +7827,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &1822757475
 MonoBehaviour:
@@ -7952,7 +7998,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &1866454923
 MonoBehaviour:
@@ -8157,7 +8205,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 1
 --- !u!1 &1888724742
 GameObject:
@@ -8818,7 +8868,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1687405858}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9089,7 +9139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbCartes: 6
-  mainJoueur: {fileID: 1443508333}
+  game: {fileID: 1417383400}
+  joueur1: {fileID: 1443508333}
+  joueur2: {fileID: 552947599}
   passer: 0
 --- !u!114 &2021940271
 MonoBehaviour:

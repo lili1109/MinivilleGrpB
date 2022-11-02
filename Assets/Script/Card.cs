@@ -11,6 +11,4 @@ public class Card : MonoBehaviour
     public string nom;
     public Sprite sprCarte;
     public GameObject Carte;
-
-
 }

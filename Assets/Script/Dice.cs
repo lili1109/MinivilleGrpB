@@ -14,7 +14,7 @@ public class Dice : MonoBehaviour
 	[SerializeField] GameObject scoreTotal;
 	public GameObject btnDe1;
     public GameObject btnDe2;
-	public GameObject mainJoueur;
+    public GameObject game;
 
     public void Throw()
     {
@@ -22,7 +22,7 @@ public class Dice : MonoBehaviour
         StartCoroutine("Shuffle");
         btnDe1.GetComponent<Button>().interactable = false;
         btnDe2.GetComponent<Button>().interactable = false;
-        mainJoueur.GetComponent<Player>().joue = true;
+        game.GetComponent<Game>().j1 = true;
 
 
     }
@@ -32,7 +32,7 @@ public class Dice : MonoBehaviour
         StartCoroutine("Shuffle2");
         btnDe1.GetComponent<Button>().interactable = false;
         btnDe2.GetComponent<Button>().interactable = false;
-        mainJoueur.GetComponent<Player>().joue = true;
+        game.GetComponent<Game>().j1 = true;
 
 
     }
@@ -67,14 +67,14 @@ public class Dice : MonoBehaviour
 		}
 		score = randomDiceSide + randomDiceSide2 + 2;
 		scoreTotal.GetComponent<TMP_Text>().text = score.ToString();
-        if (mainJoueur.GetComponent<Player>().joue == true)
+        if (game.GetComponent<Game>().j1 == true)
         {
-            mainJoueur.GetComponent<Player>().tourJoueur();
+            game.GetComponent<Game>().tourJ1();
         }
-        else if (mainJoueur.GetComponent<Player>().bEnnemi == true)
+        else if (game.GetComponent<Game>().j2 == true)
         {
-            mainJoueur.GetComponent<Player>().piles = false;
-            mainJoueur.GetComponent<Player>().tourEnnemi();
+            game.GetComponent<Game>().piles = false;
+            game.GetComponent<Game>().tourJ2();
         }
     }
 	private IEnumerator Shuffle()
@@ -89,13 +89,13 @@ public class Dice : MonoBehaviour
 		}
 		score = randomDiceSide + 1;
 		scoreTotal.GetComponent<TMP_Text>().text = score.ToString();
-        if (mainJoueur.GetComponent<Player>().joue == true)
+        if (game.GetComponent<Game>().j1 == true)
         {
-            mainJoueur.GetComponent<Player>().tourJoueur();
-        }else if(mainJoueur.GetComponent<Player>().bEnnemi == true)
+            game.GetComponent<Game>().tourJ1();
+        }else if(game.GetComponent<Game>().j2 == true)
 		{
-            mainJoueur.GetComponent<Player>().piles = false;
-            mainJoueur.GetComponent<Player>().tourEnnemi();
+            game.GetComponent<Game>().piles = false;
+            game.GetComponent<Game>().tourJ2();
         }
     }
 
