@@ -13,9 +13,10 @@ Chaque joueur commence avec deux cartes dans sa main de départ.
 Toutes les cartes comportent un gain, un prix, une valeur de dé et une couleur.
 Elles sont toutes activées lors du lancé de dé, selon la valeur totale du/des dé(s) lancé(s).
 
-  Les cartes bleues sont activées lors de lancé de n'importe quel joueur,
-  Les cartes vertes ne sont activées que lors du tour du joueur qui possède la carte,
-  Les cartes rouges sont activées lors du lancé des autres joueurs.
+  - Les cartes bleues sont activées lors de lancé de n'importe quel joueur,
+  - Les cartes vertes ne sont activées que lors du tour du joueur qui possède la carte,
+  - Les cartes rouges sont activées lors du lancé des autres joueurs.
+
 
 # Organisation d'un tour
 
@@ -24,3 +25,5 @@ Elles sont toutes activées lors du lancé de dé, selon la valeur totale du/des
 3) Le joueur a la possibilité d'acheter en fonction de son argent les différentes cartes disponibles sur le plateau. Chaque carte existe en 6 exemplaires. Si le joueur ne veut/peut rien acheter, il peut passer son tour.
 
 La partie se termine lorsque l'un des deux joueurs atteint le nombre de GomyCoins nécessaire.
+
+Ce jeu vous est proposé par Lisa Hersant, Léo Jégousse, Balthazar Brillault-Dutertre et Gaétan Tapia.
