@@ -1,7 +1,6 @@
-# MinivilleGrpB
 Groupe B projet Miniville
 
-Regle du jeu:
+# Règles du jeu :
 
 Ce jeu se déroule en tour par tour contre une IA.
 Le but est d'avoir, en fonction du mode de jeu :
